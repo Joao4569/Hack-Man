@@ -1,8 +1,9 @@
 import kaboom from "kaboom"
 
-const k = kaboom()
+kaboom()
+
 // See #SpriteAtlasData type for format spec
-k.loadSpriteAtlas("sprites/spritesheet.png", {
+loadSpriteAtlas("sprites/spritesheet.png", {
     "enemy": {
         x: 18,
         y: 84,
@@ -22,39 +23,39 @@ k.loadSpriteAtlas("sprites/spritesheet.png", {
 	}
 })
 
-k.add([
-	k.pos(120, 80),
-	k.sprite("enemy"),
-	k.scale(3)
+add([
+	pos(120, 80),
+	sprite("enemy"),
+	scale(3)
 ])
 
-k.add([
-	k.pos(10, 10),
-	k.sprite("maze-wall"),
-	k.scale(3)
+add([
+	pos(10, 10),
+	sprite("maze-wall"),
+	scale(3)
 ])
 
 for(let i = 0; i < 20; i++){
 	
-	k.add([
-		k.pos(i * 30, 10),
-		k.sprite("maze-wall"),
-		k.scale(3)
+	add([
+		pos(i * 30, 10),
+		sprite("maze-wall"),
+		scale(3)
 	])
 	if(i == 19){
 		for(let j = 1;j < 20; j++){
-			k.add([
-				k.pos(i * 30, j * 30),
-				k.sprite("maze-wall"),
-				k.scale(3)
+			add([
+				pos(i * 30, j * 30),
+				sprite("maze-wall"),
+				scale(3)
 			])
 		}
 	}
 }
 
-k.onClick(() => k.addKaboom(k.mousePos()))
+onClick(() => addKaboom(mousePos()))
 
-// k.addLevel([
+// addLevel([
 // 	'    ',
 // 	'@    ',
 // 	'xxxxx',
