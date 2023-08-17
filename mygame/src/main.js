@@ -6,9 +6,8 @@ k.loadSpriteAtlas("sprites/spritesheet.png", {
     "enemy": {
         x: 18,
         y: 84,
-        width: 133,
+        width: 15,
         height: 14,
-        sliceX: 9,
         anims: {
             idle: { from: 0, to: 3 },
             run: { from: 4, to: 7 },
@@ -57,11 +56,11 @@ k.onClick(() => k.addKaboom(k.mousePos()))
 
 // k.addLevel([
 // 	'    ',
-// 	'@',
+// 	'@    ',
 // 	'xxxxx',
 
 // ],{
 // 	width: 40,
 // 	height: 40,
-// 	'@': [sprite("spritesheet"), solid]
+// 	'x': [sprite("spritesheet"), solid]
 // })
