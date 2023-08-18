@@ -5,8 +5,13 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 // initialize kaboom context
 kaboom();
 
-// add a piece of text at position (120, 80)
+// load assets
+loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
+
+// add a game object to screen
 add([
-    text("hello"),
-    pos(120, 80),
+    // list of components
+    sprite("bean"),
+    pos(80, 40),
+    area(),
 ]);
