@@ -17,7 +17,8 @@ loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
 
 // Add Score object to game
 const score = add([
-    text(0),
+    text("Score: 0"),
+    { value: 0 },
 
     // Make blue
     color(0, 0, 255),
@@ -162,20 +163,26 @@ onLoad(() => {
 		move(LEFT,50)])
 })
 
-// add point dot to game
-add([
-    sprite("pointDot"),
-    pos(250, 250),
-    scale(2),
+// Add 5 point dots to game
+for (let i = 0; i < 5; i++){
+    add([
+        sprite("pointDot"),
+        pos(250 + i * 50, 250),
+        scale(3),
+    
+        // area() component gives the object a collider, which enables collision checking
+        area(),
+    
+        // add tag so behavior can be assigned (on collision)
+        "pointDot",
+    ])
+}
 
-    // area() component gives the object a collider, which enables collision checking
-    area(),
-
-    // add tag so behavior can be assigned (on collision)
-    "pointDot",
-])
-
-// point dot disappears when player collides with it
+// When player collides with a point dot, it disappears and 10 points are added to the score
 player.onCollide("pointDot", (pointDot) => {
     destroy(pointDot)
+
+    // Increase score and update display
+    score.value += 10
+    score.text = "Score: " + score.value
 })
