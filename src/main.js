@@ -29,8 +29,14 @@ loadSpriteAtlas("src/sprites/spritesheet.png", {
 		x: 36,
 		y: 72,
 		width: 10,
-		height: 10
-	}
+		height: 10,
+	},
+    "point-dot": {
+        x: 337,
+        y: 197,
+        width: 6,
+        height: 7,
+    }
 })
 
 // CAN BE DELETED
@@ -45,4 +51,9 @@ add([
 	pos(200, 100),
 	sprite("maze-wall"),
 	scale(3)
+])
+
+add([
+    sprite("point-dot"),
+    pos(250, 250),
 ])
