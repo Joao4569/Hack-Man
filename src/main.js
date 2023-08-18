@@ -65,7 +65,7 @@ loadSpriteAtlas("src/sprites/spritesheet.png", {
 		width: 10,
 		height: 10,
 	},
-    "point-dot": {
+    "pointDot": {
         x: 337,
         y: 197,
         width: 6,
@@ -87,7 +87,20 @@ add([
 	scale(3)
 ])
 
+// add point dot to game
 add([
-    sprite("point-dot"),
+    sprite("pointDot"),
     pos(250, 250),
+    scale(2),
+
+    // area() component gives the object a collider, which enables collision checking
+    area(),
+
+    // add tag so behavior can be assigned (on collision)
+    "pointDot",
 ])
+
+// point dot disappears when player collides with it
+player.onCollide("pointDot", (pointDot) => {
+    destroy(pointDot)
+})
