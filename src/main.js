@@ -12,8 +12,8 @@ kaboom({
     scale: 1
 })
 
-// load assets
-loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
+
+
 
 // Add Score object to game
 const score = add([
@@ -30,11 +30,11 @@ const score = add([
 
 // Add Player object to game
 const player = add([
-	sprite("bean"),
-	pos(100, 150),
+	sprite("player"),
+	pos(200, 150),
   area(),
   body(),
-  scale(1),
+  scale(.5),
 ])
 
 // Player movement
@@ -87,6 +87,23 @@ loadSpriteAtlas("src/sprites/spritesheet.png", {
         height: 7,
     }
 })
+// load  the player sprite sprite 
+loadSpriteAtlas("src/sprites/player-sprite.png", {
+  "player": {
+      x: 0,//horizontal sprite position on the spritesheet 
+      y: 0,//vertical position on spritesheet
+      width: 703,//width of the spritesheet all 3 images in the animation
+      height: 234,//height of the spritesheet
+      sliceX : 3,//how many sprites are on the sprite sheet for this invidual animation
+      anims: {
+        idle: { from: 1, to: 2,loop: true, speed:3},
+        run: { from: 2, to: 0 , loop: true, speed:4},//run animation
+    },
+    
+  }
+})
+
+player.play("run")//starts the pacman animation
 
 //walls and stationary objects go here
 addLevel([
@@ -205,7 +222,8 @@ player.onCollide("pointDot", (pointDot) => {
     score.text = "Score: " + score.value
 })
 
-
+//when player collides with enemy the enemy disappears and 10 points are added to the score and
+//the kaboom explosion animation plays in the enemy position
 player.onCollide("enemy", (enemy)=>{
     destroy(enemy)
     score.value += 10
