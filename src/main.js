@@ -3,7 +3,14 @@
 import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 
 // initialize kaboom context
-kaboom();
+// and add black background
+kaboom({
+    width: 1910,
+    height: 1080,
+    font: "sans-serif",
+    background: [ 0, 0, 0, ],
+    scale: 1
+})
 
 // load assets
 loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
