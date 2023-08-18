@@ -31,8 +31,9 @@ const score = add([
 // Add Player object to game
 const player = add([
 	sprite("bean"),
-	pos(80, 40),
+	pos(100, 150),
   area(),
+  body(),
   scale(1),
 ])
 
@@ -174,7 +175,9 @@ onLoad(() => {
             scale(3),//size of sprite
             area(), // necessary to allow collisions
             body(), // necessary so it doesn't pass through other objects
-            move(randomDirection(), 50)]) // start moving in a random direction
+            move(randomDirection(), 50),// start moving in a random direction
+           "enemy"
+          ]) 
     }
 })
 
@@ -200,4 +203,12 @@ player.onCollide("pointDot", (pointDot) => {
     // Increase score and update display
     score.value += 10
     score.text = "Score: " + score.value
+})
+
+
+player.onCollide("enemy", (enemy)=>{
+    destroy(enemy)
+    score.value += 10
+    score.text = "Score: " + score.value
+    addKaboom(enemy.pos)
 })
