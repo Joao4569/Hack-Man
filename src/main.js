@@ -5,8 +5,8 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 // initialize kaboom context
 // and add black background
 kaboom({
-    width: 1910,
-    height: 1080,
+    width: 1900,
+    height: 1075,
     font: "sans-serif",
     background: [ 0, 0, 0, ],
     scale: 1
@@ -85,6 +85,58 @@ loadSpriteAtlas("src/sprites/spritesheet.png", {
         height: 7,
     }
 })
+
+//walls and stationary objects go here
+addLevel([
+    "                                                           ",
+    '===========================================================',
+    '=                            =                            =',
+    '=                            =                            =',
+    '=                            =                            =',
+    '===================          =                            =',
+    '=                                                         =',
+    '=                                                         =',
+    '=                                                         =',
+    '=                                                         =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '=                                 =                       =',
+    '===========================================================',
+  ],{
+      // define the size of tile bck
+      tileWidth: 32,
+      tileHeight:  32,
+      // define what each symbol means, by a function returning a component list (what will be passed to add())
+      tiles: {
+          "=": () => [//each symbol represents an object
+              sprite("maze-wall"),
+              scale(3),
+              area(),//for collision detection
+              pos(),
+              body(),
+              "wall",// tag for collision detection
+          ]
+      }
+  })
 
 // CAN BE DELETED
 add([
