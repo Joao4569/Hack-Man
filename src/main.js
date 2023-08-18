@@ -133,7 +133,7 @@ addLevel([
               scale(3),
               area(),//for collision detection
               pos(),
-              body(),
+              body({ isStatic: true }),
               "wall",// tag for collision detection
           ]
       }
@@ -153,14 +153,29 @@ add([
 	scale(3)
 ])
 
-//NEW CODE FOR ENEMY MOVEMENT
+/**
+ * Generate a random direction (left, right, up or down)
+ * @returns a random direction
+ */
+function randomDirection() {
+    let directionsList = [LEFT, RIGHT, UP, DOWN];
+    let randomIndex = Math.floor(Math.random() * 4);
+    let direction = directionsList[randomIndex];
+
+    return direction;
+}
+
+// On game load, add 3 ghosts that starts moving in random directions
 onLoad(() => {
-	const ghost = add([
-		sprite("enemy"),
-		pos(500, 100),//position on screen
-		scale(3),//size of sprite
-		area(),
-		move(LEFT,50)])
+    for (let i = 0; i < 3; i++) {
+        add([
+            sprite("enemy"),
+            pos(500, 400),//position on screen
+            scale(3),//size of sprite
+            area(), // necessary to allow collisions
+            body(), // necessary so it doesn't pass through other objects
+            move(randomDirection(), 50)]) // start moving in a random direction
+    }
 })
 
 // Add 5 point dots to game
