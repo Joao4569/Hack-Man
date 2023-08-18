@@ -8,7 +8,7 @@ kaboom();
 // load assets
 loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
 
-// add something to screen
+// Add Player object to game
 const player = add([
 	sprite("bean"),
 	pos(80, 40),
@@ -16,10 +16,10 @@ const player = add([
   scale(1),
 ])
 
+// Player movement
 // Define player movement speed (pixels per second)
 const SPEED = 320
 
-// onKeyDown() registers an event that runs every frame as long as user is holding a certain key
 onKeyDown("left", () => {
 	// .move() is provided by pos() component, move by pixels per second
 	player.move(-SPEED, 0)
@@ -35,12 +35,6 @@ onKeyDown("up", () => {
 
 onKeyDown("down", () => {
 	player.move(0, SPEED)
-})
-
-// onClick() registers an event that runs once when left mouse is clicked
-onClick(() => {
-	// .moveTo() is provided by pos() component, changes the position
-	player.moveTo(mousePos())
 })
 
 add([
