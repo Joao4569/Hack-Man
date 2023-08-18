@@ -5,8 +5,8 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 // initialize kaboom context
 // and add black background
 kaboom({
-    width: 1900,
-    height: 1075,
+    width: 1920,
+    height: 1080,
     font: "sans-serif",
     background: [ 0, 0, 0, ],
     scale: 1
@@ -90,14 +90,14 @@ loadSpriteAtlas("src/sprites/spritesheet.png", {
 //walls and stationary objects go here
 addLevel([
     "                                                           ",
+    '                                                           ',
+    '                                                           ',
+    '                                                           ',
     '===========================================================',
-    '=                            =                            =',
-    '=                            =                            =',
-    '=                            =                            =',
-    '===================          =                            =',
-    '=                                                         =',
-    '=                                                         =',
-    '=                                                         =',
+    '=                             =                           =',
+    '=                             =                           =',
+    '=                             =                           =',
+    '=                             =                           =',
     '=                                                         =',
     '=                                 =                       =',
     '=                                 =                       =',
