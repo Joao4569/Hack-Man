@@ -42,3 +42,4 @@ In the tech section, we provide information about the technology stack, dependen
 ## Credits
 We would like to give credit to the following individuals, organizations, and resources that have contributed to the project or provided inspiration:
 
+- Pull test
