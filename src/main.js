@@ -8,13 +8,47 @@ kaboom();
 // load assets
 loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
 
-// add a game object to screen
+// add something to screen
+const player = add([
+	sprite("bean"),
+	pos(80, 40),
+  area(),
+  scale(1),
+])
+
+// Define player movement speed (pixels per second)
+const SPEED = 320
+
+// onKeyDown() registers an event that runs every frame as long as user is holding a certain key
+onKeyDown("left", () => {
+	// .move() is provided by pos() component, move by pixels per second
+	player.move(-SPEED, 0)
+})
+
+onKeyDown("right", () => {
+	player.move(SPEED, 0)
+})
+
+onKeyDown("up", () => {
+	player.move(0, -SPEED)
+})
+
+onKeyDown("down", () => {
+	player.move(0, SPEED)
+})
+
+// onClick() registers an event that runs once when left mouse is clicked
+onClick(() => {
+	// .moveTo() is provided by pos() component, changes the position
+	player.moveTo(mousePos())
+})
+
 add([
-    // list of components
-    sprite("bean"),
-    pos(80, 40),
-    area(),
-]);
+	// text() component is similar to sprite() but renders text
+	text("Press arrow keys to move", { width: width() / 2 }),
+	pos(12, 12),
+])
+
 
 // Below - examples of how to add sprite objects to game from spritesheet
 // See #SpriteAtlasData type for format spec
