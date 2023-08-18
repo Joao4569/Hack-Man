@@ -46,3 +46,13 @@ add([
 	sprite("maze-wall"),
 	scale(3)
 ])
+
+//NEW CODE FOR ENEMY MOVEMENT
+onLoad(() => {
+	const ghost = add([
+		sprite("enemy"),
+		pos(500, 100),//position on screen
+		scale(3),//size of sprite
+		area(),
+		move(LEFT,50)])
+})
