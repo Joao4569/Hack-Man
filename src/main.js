@@ -8,6 +8,18 @@ kaboom();
 // load assets
 loadSprite("bean", "https://kaboomjs.com/sprites/bean.png");
 
+// Add Score object to game
+const score = add([
+    text(0),
+
+    // Make blue
+    color(0, 0, 255),
+
+    // Position at center of screen (position relative to the center of the score object)
+    pos(width() / 2, 50),
+    anchor("center"),
+])
+
 // Add Player object to game
 const player = add([
 	sprite("bean"),
