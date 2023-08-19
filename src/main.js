@@ -2,27 +2,70 @@
 // do not change this
 import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 
-// function for adjusting game scale
-function adjustGameScale() {
-  const screenWidth = window.innerWidth;
-  const screenHeight = window.innerHeight;
-  // Calculate the scale based on screen dimensions
-  const scale = Math.min(screenWidth / 400, screenHeight / 340); // original - (screenWidth / 500, screenHeight / 400);
-  // Update the game scale
-  return scale;
+// DETERMING THE SIZE OF THE GAME
+// Note: this code is placed before the initialization of the game
+// because the calculated numbers are used in initialization
+
+// Set the width of the game
+// (This is the approximate width currently,
+// but if size needs to be changed just edit these numbers)
+const gameWidth = 620
+const gameHeight = 380
+const gameAspRatio = gameWidth / gameHeight
+
+// Get the aspect ratio of the current browser window
+let screenWidth = window.innerWidth;
+let screenHeight = window.innerHeight;
+let screenAspRatio = screenWidth / screenHeight
+
+// Get the DOM elements of the canvas and its wrapper
+let gameCanvas = document.getElementById("mycanvas")
+let gameWrapper = document.getElementById("game-wrapper")
+
+// SCREEN AND SCALING CALCULATIONS
+// Determine which screen direction is the limiting factor and 
+// make size and scaling calculations accordingly
+
+// Create variables to store calculated sizes based on limiting screen direction
+let limitingScreenAxis;
+let canvasWidth;
+let canvasHeight;
+let gameScale;
+
+if (screenAspRatio > gameAspRatio) { // screen is wider than game
+    limitingScreenAxis = "height";
+
+    gameCanvas.style.height = "80vh"; // game height will be 80% of browser window height
+    canvasHeight = gameCanvas.offsetHeight; // store the height of the canvas in pixels
+    gameScale = canvasHeight / gameHeight // scale the game by how much bigger the canvas is than the base size
+    
+    // calculate the width of the canvas relative to the height determined above
+    gameCanvas.style.width = (gameWidth / gameHeight) * canvasHeight;
+    canvasWidth = (gameWidth / gameHeight) * canvasHeight; // store this value for use here in main.js
+} else if (screenAspRatio <= gameAspRatio) { // screen is taller than game
+    limitingScreenAxis = "width";
+
+    gameCanvas.style.width = "80vw";
+    canvasWidth = gameCanvas.offsetWidth;
+    gameScale = canvasWidth / gameWidth
+
+    gameCanvas.style.height = (gameHeight / gameWidth) * canvasWidth
+    canvasHeight = (gameHeight / gameWidth) * canvasWidth
 }
 
 // initialize kaboom context
 // and add black background
 kaboom({
-    //width: 703 * adjustGameScale(),
-    //height: 397 * adjustGameScale(),
+    // make the width and height of the game the same as the canvas,
+    // and offset the scaling of these numbers that happens by setting scale below
+    width: canvasWidth / gameScale,
+    height: canvasHeight / gameScale,
+
     font: "sans-serif",
     background: [ 0, 0, 0, ],
-    scale: 1
-  
+    scale: gameScale, // scale the game based on the calculations above
+    canvas: document.querySelector("#mycanvas"), // initialize the game in(as?) the canvas in game.html
 })
-
 
 // Add Score object to game
 const score = add([
@@ -33,25 +76,24 @@ const score = add([
     color(0, 0, 255),
 
     // Position at center of screen (position relative to the center of the score object)
-    pos(width() /2+260 * adjustGameScale(), 20 * adjustGameScale()),
-    scale(.5 *adjustGameScale()),
+    pos(300, 50),
     anchor("center"),
 ])
 
 // Add Player object to game
 const player = add([
 	sprite("player"),
-	pos(100*adjustGameScale(), 80*adjustGameScale()),
+	pos(100, 100),
   area(),
   body(),
-  scale(adjustGameScale()/10),
+  scale(.1),
   rotate(0),        // rotate() component gives it rotation
 	anchor("center"),
 ])
 
 // Player movement
 // Define player movement speed (pixels per second)
-const SPEED = 70 *adjustGameScale()
+const SPEED = 70
 
 onKeyDown("left", () => {
 	// .move() is provided by pos() component, move by pixels per second
@@ -77,8 +119,7 @@ onKeyDown("down", () => {
 add([
 	// text() component is similar to sprite() but renders text
 	text("Press arrow keys to move"),
-	pos(width()/12 * adjustGameScale(), 12 * adjustGameScale()),
-  scale(.5 * adjustGameScale())
+	pos(1, 1),
 ])
 
 
@@ -159,15 +200,14 @@ addLevel([
     '===========================================================',
   ],{
       // define the size of tile bck
-      tileWidth: adjustGameScale()*10,
-      tileHeight:  adjustGameScale()*10,
+      tileWidth: 10,
+      tileHeight: 10,
       // define what each symbol means, by a function returning a component list (what will be passed to add())
       tiles: {
           "=": () => [//each symbol represents an object
               sprite("maze-wall"),
-              scale(adjustGameScale()),
               area(),//for collision detection
-              pos(width()/15*adjustGameScale(),0),
+              pos(),
               body({ isStatic: true }),
               "wall",// tag for collision detection
           ]
@@ -238,8 +278,7 @@ const allEnemies = []
 for (let i = 0; i < 3; i++) {
     let enemy = add([
         sprite("enemy"),
-        pos(200 *adjustGameScale(), 100 * adjustGameScale()), // position on screen
-        scale(adjustGameScale()), // size of sprite
+        pos(200, 100), // position on screen
         area(), // necessary to allow collisions
         body(), // necessary so it doesn't pass through other objects
         "enemy"
@@ -267,8 +306,7 @@ allEnemies.forEach((enemy) => {
 for (let i = 0; i < 5; i++){
     add([
         sprite("pointDot"),
-        pos(100* adjustGameScale() + i * 30 *adjustGameScale(), 150*adjustGameScale()),
-        scale(adjustGameScale()),
+        pos(100* + i * 30, 150),
     
         // area() component gives the object a collider, which enables collision checking
         area(),
