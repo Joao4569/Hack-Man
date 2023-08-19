@@ -85,25 +85,44 @@ add([
 // Below - examples of how to add sprite objects to game from spritesheet
 // See #SpriteAtlasData type for format spec
 loadSpriteAtlas("src/sprites/spritesheet.png", {
-    "enemy": {
-        x: 18,
-        y: 84,
-        width: 15,
-        height: 15,
-    },
+  "enemy": {
+    x: 18,
+    y: 84,
+    width: 15,
+    height: 15,
+  },
 	"maze-wall": {
 		x: 36,
 		y: 72,
 		width: 10,
 		height: 10,
 	},
-    "pointDot": {
-        x: 337,
-        y: 197,
-        width: 6,
-        height: 7,
-    }
+  "pointDot": {
+    x: 337,
+    y: 197,
+    width: 6,
+    height: 7,
+  },
+  "apple": {
+    x: 52,
+    y: 303,
+    width: 15,
+    height: 15,
+  },
+  "strawberry": {
+    x: 618,
+    y: 490,
+    width: 15,
+    height: 15,
+  },
+  "cherry": {
+    x: 601,
+    y: 490,
+    width: 15,
+    height: 15,
+  },
 })
+
 // load  the player sprite sprite 
 loadSpriteAtlas("src/sprites/player-sprite.png", {
   "player": {
