@@ -1,7 +1,14 @@
 // import kaboom lib
 // do not change this
 import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
-
+function adjustGameScale() {
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+  // Calculate the scale based on screen dimensions
+  const scale = Math.min(screenWidth / 400, screenHeight / 200);
+  // Update the game scale
+  return scale;
+}
 // initialize kaboom context
 // and add black background
 kaboom({
@@ -22,24 +29,25 @@ const score = add([
     color(0, 0, 255),
 
     // Position at center of screen (position relative to the center of the score object)
-    pos(width() / 2, 50),
+    pos(width() / 5 * adjustGameScale(), 20 * adjustGameScale()),
+    scale(adjustGameScale()/2),
     anchor("center"),
 ])
 
 // Add Player object to game
 const player = add([
 	sprite("player"),
-	pos(200, 250),
+	pos(50*adjustGameScale(), 80*adjustGameScale()),
   area(),
   body(),
-  scale(.3),
+  scale(adjustGameScale()/10),
   rotate(0),        // rotate() component gives it rotation
 	anchor("center"),
 ])
 
 // Player movement
 // Define player movement speed (pixels per second)
-const SPEED = 320
+const SPEED = 70 *adjustGameScale()
 
 onKeyDown("left", () => {
 	// .move() is provided by pos() component, move by pixels per second
@@ -64,7 +72,7 @@ onKeyDown("down", () => {
 
 add([
 	// text() component is similar to sprite() but renders text
-	text("Press arrow keys to move", { width: width() / 2 }),
+	text("Press arrow keys to move", { width: width() / 2 * adjustGameScale() }),
 	pos(12, 12),
 ])
 
@@ -146,13 +154,13 @@ addLevel([
     '===========================================================',
   ],{
       // define the size of tile bck
-      tileWidth: 32,
-      tileHeight:  32,
+      tileWidth: adjustGameScale()*10,
+      tileHeight:  adjustGameScale()*10,
       // define what each symbol means, by a function returning a component list (what will be passed to add())
       tiles: {
           "=": () => [//each symbol represents an object
               sprite("maze-wall"),
-              scale(3),
+              scale(adjustGameScale()),
               area(),//for collision detection
               pos(),
               body({ isStatic: true }),
@@ -179,8 +187,8 @@ onLoad(() => {
     for (let i = 0; i < 3; i++) {
         add([
             sprite("enemy"),
-            pos(500, 400),//position on screen
-            scale(3),//size of sprite
+            pos(100 *adjustGameScale(), 100 * adjustGameScale()),//position on screen
+            scale(adjustGameScale()),//size of sprite
             area(), // necessary to allow collisions
             body(), // necessary so it doesn't pass through other objects
             move(randomDirection(), 50),// start moving in a random direction
@@ -193,8 +201,8 @@ onLoad(() => {
 for (let i = 0; i < 5; i++){
     add([
         sprite("pointDot"),
-        pos(250 + i * 50, 250),
-        scale(3),
+        pos(100* adjustGameScale() + i * 30 *adjustGameScale(), 150*adjustGameScale()),
+        scale(adjustGameScale()),
     
         // area() component gives the object a collider, which enables collision checking
         area(),
