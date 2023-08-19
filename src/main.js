@@ -295,3 +295,24 @@ player.onCollide("enemy", (enemy)=>{
     score.text = "Score: " + score.value
     addKaboom(enemy.pos)
 })
+
+
+// Enemy that follows player
+const ENEMY_SPEED = 120
+
+
+const enemy1 = add([
+	sprite("enemy"),
+	anchor("center"),
+	area(),
+	body(),
+  pos(200 *adjustGameScale(), 100 * adjustGameScale()),
+	// This enemy cycle between 3 states, and start from "idle" state
+	state("move"),
+])
+
+enemy1.onStateUpdate("move", () => {
+	if (!player.exists()) return
+	const dir = player.pos.sub(enemy1.pos).unit()
+	enemy1.move(dir.scale(ENEMY_SPEED))
+})
