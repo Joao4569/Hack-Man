@@ -20,6 +20,7 @@ kaboom({
     font: "sans-serif",
     background: [ 0, 0, 0, ],
     scale: 1
+  
 })
 
 
@@ -32,7 +33,7 @@ const score = add([
     color(0, 0, 255),
 
     // Position at center of screen (position relative to the center of the score object)
-    pos(width() /2 +180  * adjustGameScale(), 20 * adjustGameScale()),
+    pos(width() /2+260 * adjustGameScale(), 20 * adjustGameScale()),
     scale(.5 *adjustGameScale()),
     anchor("center"),
 ])
@@ -40,7 +41,7 @@ const score = add([
 // Add Player object to game
 const player = add([
 	sprite("player"),
-	pos(50*adjustGameScale(), 80*adjustGameScale()),
+	pos(100*adjustGameScale(), 80*adjustGameScale()),
   area(),
   body(),
   scale(adjustGameScale()/10),
@@ -76,7 +77,7 @@ onKeyDown("down", () => {
 add([
 	// text() component is similar to sprite() but renders text
 	text("Press arrow keys to move"),
-	pos(12, 12),
+	pos(width()/12 * adjustGameScale(), 12 * adjustGameScale()),
   scale(.5 * adjustGameScale())
 ])
 
@@ -166,7 +167,7 @@ addLevel([
               sprite("maze-wall"),
               scale(adjustGameScale()),
               area(),//for collision detection
-              pos(),
+              pos(width()/15*adjustGameScale(),0),
               body({ isStatic: true }),
               "wall",// tag for collision detection
           ]
