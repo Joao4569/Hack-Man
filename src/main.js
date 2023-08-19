@@ -5,15 +5,15 @@ function adjustGameScale() {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
   // Calculate the scale based on screen dimensions
-  const scale = Math.min(screenWidth / 400, screenHeight / 200);
+  const scale = Math.min(screenWidth / 500, screenHeight / 400);
   // Update the game scale
   return scale;
 }
 // initialize kaboom context
 // and add black background
 kaboom({
-    width: 1920,
-    height: 1080,
+    width: 920 * adjustGameScale(),
+    height: 450 * adjustGameScale(),
     font: "sans-serif",
     background: [ 0, 0, 0, ],
     scale: 1
