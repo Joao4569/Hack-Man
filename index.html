@@ -17,7 +17,8 @@
 </head>
 
 <body>
-  <div class="container text-center">
+  <div class="menu-area container text-center">
+    <div class="menu-content">
     <div class="row">
       <div class="col-12">
         <h1>Hackman</h1>
@@ -25,7 +26,11 @@
     </div>
     <div class="row">
       <div class="col">
-        <a href="game.html">Play Now</a>
+        <a href="game.html">
+          <button type="button" class="btn btn-primary">
+            Play now
+          </button>
+        </a>
       </div>
       <div class="col">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -33,13 +38,13 @@
         </button>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">How to Play</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body modal-dialog modal-dialog-centered">
+              <div class="modal-body">
                 <p>What is the game</p>
                 <p>Aim of the game/ objective</p>
                 <p>How to play the game</p>
@@ -52,6 +57,9 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+</div>
 
 
 </body>
