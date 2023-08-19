@@ -12,8 +12,8 @@ function adjustGameScale() {
 // initialize kaboom context
 // and add black background
 kaboom({
-    width: 920 * adjustGameScale(),
-    height: 450 * adjustGameScale(),
+    width: 703 * adjustGameScale(),
+    height: 397 * adjustGameScale(),
     font: "sans-serif",
     background: [ 0, 0, 0, ],
     scale: 1
