@@ -342,21 +342,21 @@ player.onCollide("enemy", (enemy)=>{
 
 
 // Enemy that follows player
-const ENEMY_SPEED = 120
+// const ENEMY_SPEED = 120
 
 
-const enemy1 = add([
-	sprite("enemy"),
-	anchor("center"),
-	area(),
-	body(),
-    pos(300, 200),
+// const enemy1 = add([
+// 	sprite("enemy"),
+// 	anchor("center"),
+// 	area(),
+// 	body(),
+//     pos(300, 200),
 	// This enemy cycle between 3 states, and start from "idle" state
-	state("move"),
-])
+// 	state("move"),
+// ])
 
-enemy1.onStateUpdate("move", () => {
-	if (!player.exists()) return
-	const dir = player.pos.sub(enemy1.pos).unit()
-	enemy1.move(dir.scale(ENEMY_SPEED))
-})
+// enemy1.onStateUpdate("move", () => {
+// 	if (!player.exists()) return
+// 	const dir = player.pos.sub(enemy1.pos).unit()
+// 	enemy1.move(dir.scale(ENEMY_SPEED))
+// })
