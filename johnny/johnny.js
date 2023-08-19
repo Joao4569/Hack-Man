@@ -130,7 +130,6 @@ addLevel([
 		// wall
         "=": () => [ //each symbol represents an object
             sprite("maze-wall"),
-            scale(adjustGameScale()),
             area(), //for collision detection
             pos(),
             body({ isStatic: true }),
@@ -139,14 +138,14 @@ addLevel([
 		// dots
         "*": () => [
             sprite("pointDot"),
-            pos(100* + i * 30, 150),
+            pos(),
             area(),       
             "pointDot",  // add tag so behavior can be assigned (on collision)},
         ]},
 })
 
 
-//////////////////////////// Sprites /////////////////////////////
+//////////////////////////////// Sprites /////////////////////////////
 
 
 // Below - examples of how to add sprite objects to game from spritesheet
@@ -196,7 +195,6 @@ add([
 	// text() component is similar to sprite() but renders text
 	text("Press arrow keys to move"),
 	pos(1, 1),
-  scale(.5 * adjustGameScale())
 ])
 
 
@@ -297,7 +295,7 @@ player.onCollide("enemy", (enemy)=>{
 })
 
 
-//////////////////////////////// Ghosts/Enemies /////////////////////////////////////////////////
+//////////////////////////////// Ghost/Enemy /////////////////////////////////////////////////
 
 
 // Create an empty array to store all enemy objects
@@ -316,44 +314,73 @@ for (let i = 0; i < 3; i++) {
         allEnemies.push(enemy) // add new enemy object to allEnemies
 }
 
+
+//////////////////////////////////// Enemy1 /////////////////////////////////////////////////
+
+
 // ENEMY 1 - What is this???? CI enemy? - Johnny asking, DM me
 const enemy1 = add([
 	sprite("enemy"),
 	anchor("center"),
 	area(),
 	body(),
-  pos(200 *adjustGameScale(), 100 * adjustGameScale()),
+  pos(200, 100), //position on screen
 	// This enemy cycle between 3 states, and start from "idle" state
 	state("move"),
 ])
 
+enemy1.onStateUpdate("move", () => {
+	if (!player.exists()) return
+	const dir = player.pos.sub(enemy1.pos).unit()
+	enemy1.move(dir.scale(ENEMY_SPEED))
+})
 
-///////////////////////////// Ghosts/Enemies Action - Follow Player /////////////////////////////////////////////////
 
 
-// Enemy that follows player
+
+// Enemy1 follows player
 const ENEMY_SPEED = 120
 
 
+///////////////////////////// Ghost/Enemy Action - Programmed Behaviour /////////////////////////////////////////////////
 
 
 /**
- * Generate a random direction (left, right, up or down)
- * @returns a random direction
- */
-function randomDirection() {
-    let enemySpeed = 100;
-    let directionsList = [
-        [enemySpeed, 0],
-        [-enemySpeed, 0],
-        [0, enemySpeed],
-        [0, -enemySpeed]
-    ]
-    let randomIndex = Math.floor(Math.random() * 4);
-    let direction = directionsList[randomIndex];
+* Generate a random direction (left, right, up or down)
+* @returns a random direction
+*/
 
-    return direction;
+function randomDirection() {
+  let enemySpeed = 100;
+  let directionsList = [
+      [enemySpeed, 0],
+      [-enemySpeed, 0],
+      [0, enemySpeed],
+      [0, -enemySpeed]
+  ]
+  let randomIndex = Math.floor(Math.random() * 4);
+  let direction = directionsList[randomIndex];
+
+  return direction;
 }
+
+// On each frame, enemy moves in the x and y directions stored in newDir
+// When enemy hits a wall, direction changes, causing it to turn left or right
+allEnemies.forEach((enemy) => {
+  let newDir = randomDirection()
+  onUpdate(() => {
+      enemy.move(newDir[0], newDir[1])
+  })
+  // --- COMMENT BACK IN FROM HERE FOR CHANGE DIRECTION CODE ---
+  // enemy.onCollide("wall", () => {
+  //     debug.log("enemy hit wall") // CAN BE REMOVED - checking when they hit walls
+  //     newDir = changeDirection(newDir)
+  // })
+  // --- COMMENT BACK IN UNTIL HERE FOR CHANGE DIRECTION CODE
+})
+
+
+
 
 /**
  * Based on the current movement of the enemy, returns a new direction that will
@@ -393,37 +420,3 @@ function randomDirection() {
 //     return direction
 // }
 // --- COMMENT BACK IN UP UNTIL HERE FOR CHANGE DIRECTION CODE ---
-
-
-
-// On each frame, enemy moves in the x and y directions stored in newDir
-// When enemy hits a wall, direction changes, causing it to turn left or right
-allEnemies.forEach((enemy) => {
-    let newDir = randomDirection()
-    onUpdate(() => {
-        enemy.move(newDir[0], newDir[1])
-    })
-    // --- COMMENT BACK IN FROM HERE FOR CHANGE DIRECTION CODE ---
-    // enemy.onCollide("wall", () => {
-    //     debug.log("enemy hit wall") // CAN BE REMOVED - checking when they hit walls
-    //     newDir = changeDirection(newDir)
-    // })
-    // --- COMMENT BACK IN UNTIL HERE FOR CHANGE DIRECTION CODE
-})
-
-
-
-
-
-
-
-
-
-
-
-
-enemy1.onStateUpdate("move", () => {
-	if (!player.exists()) return
-	const dir = player.pos.sub(enemy1.pos).unit()
-	enemy1.move(dir.scale(ENEMY_SPEED))
-})
