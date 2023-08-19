@@ -13,8 +13,6 @@ kaboom({
 })
 
 
-
-
 // Add Score object to game
 const score = add([
     text("Score: 0"),
@@ -31,10 +29,12 @@ const score = add([
 // Add Player object to game
 const player = add([
 	sprite("player"),
-	pos(200, 150),
+	pos(200, 250),
   area(),
   body(),
-  scale(.5),
+  scale(.3),
+  rotate(0),        // rotate() component gives it rotation
+	anchor("center"),
 ])
 
 // Player movement
@@ -44,19 +44,23 @@ const SPEED = 320
 onKeyDown("left", () => {
 	// .move() is provided by pos() component, move by pixels per second
 	player.move(-SPEED, 0)
+  player.angle = 180
 })
 
 onKeyDown("right", () => {
 	player.move(SPEED, 0)
+  player.angle = 0//changes the rotation of the object rotate(0) and anchor("center") have to be attached to object 
 })
 
 onKeyDown("up", () => {
 	player.move(0, -SPEED)
+  player.angle = -90
 })
 
 onKeyDown("down", () => {
 	player.move(0, SPEED)
-})
+  player.angle = 90
+  })
 
 add([
 	// text() component is similar to sprite() but renders text
@@ -92,7 +96,7 @@ loadSpriteAtlas("src/sprites/player-sprite.png", {
   "player": {
       x: 0,//horizontal sprite position on the spritesheet 
       y: 0,//vertical position on spritesheet
-      width: 703,//width of the spritesheet all 3 images in the animation
+      width: 702,//width of the spritesheet all 3 images in the animation
       height: 234,//height of the spritesheet
       sliceX : 3,//how many sprites are on the sprite sheet for this invidual animation
       anims: {
@@ -157,19 +161,6 @@ addLevel([
       }
   })
 
-// CAN BE DELETED
-add([
-	pos(300, 300),
-	sprite("enemy"),
-	scale(3)
-])
-
-// CAN BE DELETED
-add([
-	pos(200, 100),
-	sprite("maze-wall"),
-	scale(3)
-])
 
 /**
  * Generate a random direction (left, right, up or down)
