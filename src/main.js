@@ -32,8 +32,8 @@ const score = add([
     color(0, 0, 255),
 
     // Position at center of screen (position relative to the center of the score object)
-    pos(width() / 5 * adjustGameScale(), 20 * adjustGameScale()),
-    scale(adjustGameScale()/2),
+    pos(width() /2 +180  * adjustGameScale(), 20 * adjustGameScale()),
+    scale(.5 *adjustGameScale()),
     anchor("center"),
 ])
 
@@ -75,8 +75,9 @@ onKeyDown("down", () => {
 
 add([
 	// text() component is similar to sprite() but renders text
-	text("Press arrow keys to move", { width: width() / 2 * adjustGameScale() }),
+	text("Press arrow keys to move"),
 	pos(12, 12),
+  scale(.5 * adjustGameScale())
 ])
 
 
