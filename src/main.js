@@ -205,18 +205,18 @@ addLevel([
       // define what each symbol means, by a function returning a component list (what will be passed to add())
       tiles: {
           "=": () => [//each symbol represents an object
-              sprite("maze-wall"),
-              area(),//for collision detection
-              pos(),
-              body({ isStatic: true }),
-              "wall",// tag for collision detection
+                sprite("maze-wall"),
+                area(),//for collision detection
+                pos(),
+                body({ isStatic: true }),
+                "wall",// tag for collision detection
           ],
           "*": () => [
-            sprite("pointDot"),
-            pos(width()/15*adjustGameScale(),0),
-            scale(adjustGameScale()),
-            area(),       
-            "pointDot",  // add tag so behavior can be assigned (on collision)},
+                sprite("pointDot"),
+                pos(),
+                area(),
+                body({ isStatic: true }),       
+                "pointDot",  // add tag so behavior can be assigned (on collision)},
           ]},     
      })
 
@@ -350,7 +350,7 @@ const enemy1 = add([
 	anchor("center"),
 	area(),
 	body(),
-  pos(200 *adjustGameScale(), 100 * adjustGameScale()),
+    pos(300, 200),
 	// This enemy cycle between 3 states, and start from "idle" state
 	state("move"),
 ])
