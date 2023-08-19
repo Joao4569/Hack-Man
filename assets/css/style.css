@@ -5,3 +5,26 @@ body{
 h1 {
     color: white;
 }
+
+.modal-title {
+    color: black;
+}
+
+.btn {
+    background-color:rgb(197,79,214);
+    border-color: rgb(197,79,214);
+  }
+
+.menu-area {
+    background-color: black;
+    border-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    margin-top: 300px;
+    height: 400px;
+    width: auto;
+}
+
+.menu-content {
+    margin-top: 50px;
+}
