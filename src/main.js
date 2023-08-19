@@ -1,19 +1,22 @@
 // import kaboom lib
 // do not change this
 import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
+
+// function for adjusting game scale
 function adjustGameScale() {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
   // Calculate the scale based on screen dimensions
-  const scale = Math.min(screenWidth / 500, screenHeight / 400);
+  const scale = Math.min(screenWidth / 400, screenHeight / 340); // original - (screenWidth / 500, screenHeight / 400);
   // Update the game scale
   return scale;
 }
+
 // initialize kaboom context
 // and add black background
 kaboom({
-    width: 703 * adjustGameScale(),
-    height: 397 * adjustGameScale(),
+    //width: 703 * adjustGameScale(),
+    //height: 397 * adjustGameScale(),
     font: "sans-serif",
     background: [ 0, 0, 0, ],
     scale: 1
@@ -170,10 +173,9 @@ addLevel([
   })
 
 
-/**
- * Generate a random direction (left, right, up or down)
- * @returns a random direction
- */
+
+// Generate a random direction (left, right, up or down)
+// @returns a random direction
 function randomDirection() {
     let directionsList = [LEFT, RIGHT, UP, DOWN];
     let randomIndex = Math.floor(Math.random() * 4);
