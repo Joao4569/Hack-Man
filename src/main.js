@@ -172,31 +172,93 @@ addLevel([
       }
   })
 
-
-
-// Generate a random direction (left, right, up or down)
-// @returns a random direction
+/**
+ * Generate a random direction (left, right, up or down)
+ * @returns a random direction
+ */
 function randomDirection() {
-    let directionsList = [LEFT, RIGHT, UP, DOWN];
+    let enemySpeed = 100;
+    let directionsList = [
+        [enemySpeed, 0],
+        [-enemySpeed, 0],
+        [0, enemySpeed],
+        [0, -enemySpeed]
+    ]
     let randomIndex = Math.floor(Math.random() * 4);
     let direction = directionsList[randomIndex];
 
     return direction;
 }
 
-// On game load, add 3 ghosts that starts moving in random directions
-onLoad(() => {
-    for (let i = 0; i < 3; i++) {
-        add([
-            sprite("enemy"),
-            pos(100 *adjustGameScale(), 100 * adjustGameScale()),//position on screen
-            scale(adjustGameScale()),//size of sprite
-            area(), // necessary to allow collisions
-            body(), // necessary so it doesn't pass through other objects
-            move(randomDirection(), 50),// start moving in a random direction
-           "enemy"
-          ]) 
-    }
+/**
+ * Based on the current movement of the enemy, returns a new direction that will
+ * cause enemy to turn (randomly) right or left when it hits a wall
+ * @param {*} currentDirection 
+ * @returns direction as an array
+ */
+// --- COMMENT BACK IN FROM HERE FOR CHANGE DIRECTION CODE ---
+// function changeDirection(currentDirection) {
+//     // set speed
+//     let enemySpeed = 100
+
+//     // randomly generate a positive or negative speed
+//     let posOrNeg = Math.floor(Math.random() * 2)
+//     let randSpeed
+//     if (posOrNeg == 0) {
+//         randSpeed = enemySpeed
+//     } else {
+//         randSpeed = -enemySpeed
+//     }
+
+//     // change the direction - set whatever axis was non-zero to zero and set the other
+//     // axis to the random direction from above
+//     let xMov = currentDirection[0]
+//     let yMov = currentDirection[1]
+//     if (xMov != 0) {
+//         xMov = 0
+//         yMov = randSpeed
+//     } else if (yMov != 0) {
+//         xMov = randSpeed
+//         yMov = 0
+//     }
+
+//     // store the new x and y speeds in an array
+//     let direction = [xMov, yMov]
+
+//     return direction
+// }
+// --- COMMENT BACK IN UP UNTIL HERE FOR CHANGE DIRECTION CODE ---
+
+// Create an empty array to store all enemy objects
+const allEnemies = []
+
+// Add 3 ghosts to game
+for (let i = 0; i < 3; i++) {
+    let enemy = add([
+        sprite("enemy"),
+        pos(200 *adjustGameScale(), 100 * adjustGameScale()), // position on screen
+        scale(adjustGameScale()), // size of sprite
+        area(), // necessary to allow collisions
+        body(), // necessary so it doesn't pass through other objects
+        "enemy"
+        ])
+    
+        allEnemies.push(enemy) // add new enemy object to allEnemies
+}
+
+// On each frame, enemy moves in the x and y directions stored in newDir
+// When enemy hits a wall, direction changes, causing it to turn left or right
+allEnemies.forEach((enemy) => {
+    let newDir = randomDirection()
+    onUpdate(() => {
+        enemy.move(newDir[0], newDir[1])
+    })
+    // --- COMMENT BACK IN FROM HERE FOR CHANGE DIRECTION CODE ---
+    // enemy.onCollide("wall", () => {
+    //     debug.log("enemy hit wall") // CAN BE REMOVED - checking when they hit walls
+    //     newDir = changeDirection(newDir)
+    // })
+    // --- COMMENT BACK IN UNTIL HERE FOR CHANGE DIRECTION CODE
 })
 
 // Add 5 point dots to game
