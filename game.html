@@ -6,11 +6,16 @@
     <meta name="description" content="Pacman inspired CodeInstitute game">
     <meta name="keywords" content="pacman, game, CodeInstitute">
     <title>Hackman</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <script src="https://unpkg.com/kaboom@3000.0.1/dist/kaboom.js"></script>
+  <div id="game-wrapper">
+    <canvas id="mycanvas">
+      <script src="https://unpkg.com/kaboom@3000.0.1/dist/kaboom.js"></script>
 
-  <!-- script element for kaboom.js code (as if src/main.js) -->
-  <script type="module" src="src/main.js"></script>
+      <!-- script element for kaboom.js code (as if src/main.js) -->
+      <script type="module" src="src/main.js"></script>
+    </canvas>
+  </div>
 </body>
 </html>
