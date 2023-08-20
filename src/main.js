@@ -330,6 +330,18 @@ player.onCollide("pointDot", (pointDot) => {
     score.text = "Score: " + score.value
 })
 
+//////////////////////// Player Action - Eat fruits /////////////////////////////////////////////////
+
+
+// When player collides with a fruit, it disappears and 100 points are added to the score
+player.onCollide("fruit", (fruit) => {
+    destroy(fruit)
+    
+    // Increase score and update display
+    score.value += 100
+    score.text = "Score: " + score.value
+})
+
 
 //////////////////////// Player Action - Kill enemy /////////////////////////////////////////////////
 
