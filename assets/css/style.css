@@ -99,6 +99,12 @@ button:modal {
   border-top: 2px solid #ff5f1f !important;
 }
 
+/* GAME.HTML STYLING */
+
+#game-page-body {
+    background-color: white;
+}
+
 /* centers game on game.html page */
 #game-wrapper {
   display: flex;
