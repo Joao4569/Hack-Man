@@ -1,6 +1,9 @@
 /* Press Start 2p font */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* VT323 font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
 body,
 .modal-bground {
   background-color: black;
@@ -49,6 +52,10 @@ h2 {
   color: #ff3131;
 }
 
+.menu-font-size {
+	font-size: 1.1rem;
+}
+
 /* custom font colors */
 .blue-font {
   color: #04d9ff;
@@ -58,8 +65,16 @@ h2 {
   color: #ff3131;
 }
 
+.yel-font {
+	color: #ffff00;
+}
+
 .red-font:hover {
   color: #bc13fe;
+}
+
+.purple-font {
+	color: #bc13fe;
 }
 
 .green-font {
@@ -68,6 +83,10 @@ h2 {
 
 .green-font:hover {
   color: #1f51ff;
+}
+
+.orange-font {
+	color: #ff5f1f;
 }
 
 /* Modal */
@@ -97,6 +116,23 @@ button:modal {
 
 .orange-border-top {
   border-top: 2px solid #ff5f1f !important;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+.font-vt323 {
+	font-family: 'VT323', monospace;
+}
+
+.font-size-modal-pg {
+	font-size: 1.5rem;
+}
+
+.modal-btn {
+	background-color: black !important;
+	border-color: black !important;
 }
 
 /* centers game on game.html page */
