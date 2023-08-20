@@ -35,21 +35,25 @@ h1 {
     font-size: 1.4rem;
 }
 
+/* Menu buttons */
 .button-menu, h2 {
     font-size: 2rem !important;
     border: none !important;
-}
-
-button {
     background-color: black !important;
+    box-shadow: none !important;
 }
 
+.btn-primary:focus {
+    color: #ff3131;
+}
+
+/* custom font colors */
 .blue-font {
     color: #04d9ff;
 }
 
 .red-font {
-    color: #ff3131
+    color: #ff3131;
 }
 
 .red-font:hover {
@@ -70,9 +74,10 @@ button {
     color: black;
 }
 
-.btn {
-    background-color:rgb(197,79,214);
-    border-color: rgb(197,79,214);
+button:modal {
+    background-color:#39ff14;
+    border-color: #39ff14;
+    color: #ff5f1f;
 }
 
 .menu-area {

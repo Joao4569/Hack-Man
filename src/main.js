@@ -127,7 +127,7 @@ addLevel([
     tiles: {
         
         // wall
-        "=": () => [ //each symbol represents an object
+    "=": () => [ //each symbol represents an object
         sprite("maze-wall"),
         area(), //for collision detection
         pos(),
@@ -200,19 +200,19 @@ loadSpriteAtlas("src/sprites/spritesheet.png", {
         width: 15,
         height: 15,
       },
-      "strawberry": {
+    "strawberry": {
         x: 618,
         y: 490,
         width: 15,
         height: 15,
       },
-      "cherry": {
+    "cherry": {
         x: 601,
         y: 490,
         width: 15,
         height: 15,
       },    
-      "yellowFruit": {
+    "yellowFruit": {
         x: 436,
         y: 676,
         width: 15,
@@ -477,7 +477,7 @@ allEnemies.forEach((enemy) => {
 // --- COMMENT BACK IN UP UNTIL HERE FOR CHANGE DIRECTION CODE ---
 
 
-////////////////////// Music ///////////////////////////////////////////////
+//////////////////////////////// Music ///////////////////////////////////////////////
 // play a looping soundtrack
 loadSound("cruising", "assets/music/cruising.mp3")
 
