@@ -1,99 +1,109 @@
 /* Press Start 2p font */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body{
-    background-color: black;
+body,
+.modal-bground {
+  background-color: black;
 }
 
 /* index.html */
 
 /* logo */
 .font-ps2p {
-    font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', cursive;
 }
 
 #game-title {
-    background-color: #ff5f1f;
-    border-style: ridge !important;
-    border-width: 20px !important;
-    border-color: #bc13fe !important;
+  background-color: #ff5f1f;
+  border-style: ridge !important;
+  border-width: 20px !important;
+  border-color: #bc13fe !important;
 }
 
 h1 {
-    color: #ffff00;
-    font-size: 4rem;
-    font-weight: 900;
+  color: #ffff00;
+  font-size: 4rem;
+  font-weight: 900;
 }
 
 /* Itroduction text */
 
-.intro-text {
-    color: white;
+.white-text {
+  color: white !important;
 }
 
 .score-text {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 /* Menu buttons */
-.button-menu, h2 {
-    font-size: 2rem !important;
-    border: none !important;
-    background-color: black !important;
-    box-shadow: none !important;
+.button-menu,
+h2 {
+  font-size: 2rem !important;
+  border: none !important;
+  background-color: black !important;
+  box-shadow: none !important;
 }
 
 .btn-primary:focus {
-    color: #ff3131;
+  color: #ff3131;
 }
 
 /* custom font colors */
 .blue-font {
-    color: #04d9ff;
+  color: #04d9ff;
 }
 
 .red-font {
-    color: #ff3131;
+  color: #ff3131;
 }
 
 .red-font:hover {
-    color: #bc13fe;
+  color: #bc13fe;
 }
 
 .green-font {
-    color: #39ff14;
+  color: #39ff14;
 }
 
 .green-font:hover {
-    color: #1f51ff;
+  color: #1f51ff;
 }
 
 /* Modal */
 
 .modal-title {
-    color: black;
+  color: #bc13fe;
 }
 
 button:modal {
-    background-color:#39ff14;
-    border-color: #39ff14;
-    color: #ff5f1f;
+  background-color: #39ff14;
+  border-color: #39ff14;
+  color: #ff5f1f;
 }
 
 .menu-area {
-    margin-top: 100px;
-    width: auto;
+  margin-top: 100px;
+  width: auto;
 }
 
 .menu-content {
-    margin-top: 50px;
+  margin-top: 50px;
+}
+
+.orange-border-bottom {
+  border-bottom: 2px solid #ff5f1f !important;
+}
+
+.orange-border-top {
+  border-top: 2px solid #ff5f1f !important;
 }
 
 /* centers game on game.html page */
-#game-wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+#game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
