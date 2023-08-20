@@ -259,7 +259,21 @@ const score = add([
     anchor("topright"),
 ])
 
+//////////////////////// Lives ////////////////////////////////////////
+add([
+    text("LIVES:", { size: 20}),
+    pos(gameDisplayWidth - 300, 10),
+  ]);
 
+const livesText = add([
+    text("3", { size: 20}),
+    pos(gameDisplayWidth - 230, 10),
+  ]);
+
+  function updateLives(life) {
+    player.lives += life;
+    livesText.text = player.lives.toString();
+  }
 ////////////////////////////// Player ///////////////////////////////////////////////////
 
 
@@ -269,6 +283,9 @@ const player = add([
     pos(100, 100),
     area(),
     body(),
+    {
+        lives: 3,
+    },
     scale(.1),
     rotate(0), // rotate() component gives it rotation
     anchor("center"),
@@ -360,6 +377,7 @@ player.onCollide("fruit", (fruit) => {
 player.onCollide("enemy", (enemy)=>{
     destroy(enemy)
     score.value += 10
+    updateLives(-1);
     score.text = "Score: " + score.value
     addKaboom(enemy.pos)
 })
