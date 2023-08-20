@@ -274,7 +274,7 @@ add([
   ]);
 
 const livesText = add([
-    text("3", { size: 20}),
+    text("1", { size: 20}),
     pos(gameDisplayWidth - 230, 10),
   ]);
 
@@ -292,7 +292,7 @@ const player = add([
     area(),
     body(),
     {
-        lives: 3,
+        lives: 1,
     },
     scale(.1),
     rotate(0), // rotate() component gives it rotation
@@ -386,6 +386,9 @@ const player = add([
         destroy(enemy)
         updateLives(-1);
         score.text = "Score: " + score.value
+        if (player.lives == 0) {
+            go("over");
+          }
         addKaboom(enemy.pos)
     })
 
