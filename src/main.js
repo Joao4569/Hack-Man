@@ -267,20 +267,38 @@ scene("game", () => {
     ])
 
 
-    ////////////////////////////// Player ///////////////////////////////////////////////////
+//////////////////////// Lives ////////////////////////////////////////
+add([
+    text("LIVES:", { size: 20}),
+    pos(gameDisplayWidth - 300, 10),
+  ]);
+
+const livesText = add([
+    text("3", { size: 20}),
+    pos(gameDisplayWidth - 230, 10),
+  ]);
+
+  function updateLives(life) {
+    player.lives += life;
+    livesText.text = player.lives.toString();
+  }
+////////////////////////////// Player ///////////////////////////////////////////////////
 
 
-    // Add Player object to game
-    const player = add([
-        sprite("player"),
-        pos(100, 100),
-        area(),
-        body(),
-        scale(.1),
-        rotate(0), // rotate() component gives it rotation
-        anchor("center"),
-        "player",
-    ])
+// Add Player object to game
+const player = add([
+    sprite("player"),
+    pos(100, 100),
+    area(),
+    body(),
+    {
+        lives: 3,
+    },
+    scale(.1),
+    rotate(0), // rotate() component gives it rotation
+    anchor("center"),
+    "player",
+])
 
     //////////////////////// Player Movement - User input /////////////////////////////////////////////////
 
@@ -366,7 +384,7 @@ scene("game", () => {
     //the kaboom explosion animation plays in the enemy position
     player.onCollide("enemy", (enemy)=>{
         destroy(enemy)
-        score.value += 10
+        updateLives(-1);
         score.text = "Score: " + score.value
         addKaboom(enemy.pos)
     })
