@@ -40,6 +40,10 @@ if (screenAspRatio > gameAspRatio) { // limiting screen axis is height (screen i
 
 }
 
+// Game canvas display width and height adjusted for overall game scaling
+let gameDisplayWidth = canvasWidth / gameScale
+let gameDisplayHeight = canvasHeight / gameScale
+
 
 ///////////////////////////// Kaboom /////////////////////////////////////
 
@@ -48,8 +52,8 @@ if (screenAspRatio > gameAspRatio) { // limiting screen axis is height (screen i
 kaboom({
     // make the width and height of the game the same as the canvas,
     // and offset the scaling of these numbers that happens by setting scale below
-    width: canvasWidth / gameScale,
-    height: canvasHeight / gameScale,
+    width: gameDisplayWidth,
+    height: gameDisplayHeight,
     
     font: "sans-serif",
     
@@ -265,6 +269,7 @@ const player = add([
     scale(.1),
     rotate(0), // rotate() component gives it rotation
     anchor("center"),
+    "player",
 ])
 
 //////////////////////// Player Movement - User input /////////////////////////////////////////////////
@@ -300,6 +305,22 @@ onKeyDown("up", () => {
 onKeyDown("down", () => {
     player.move(0, SPEED)
     player.angle = 90
+})
+
+
+//////////////////////// Player Movement - Secret tunnel /////////////////////////////////////////////////
+
+
+onUpdate("player", (player) => {
+    if (player.pos.x < 0) {
+        let yCoord = player.pos.y
+        player.moveTo(gameDisplayWidth - 10, yCoord)
+    }
+        
+    if (player.pos.x > gameDisplayWidth) {
+        let yCoord = player.pos.y
+        player.moveTo(10, yCoord)
+    }
 })
 
 
