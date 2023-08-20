@@ -17,14 +17,81 @@
 </head>
 
 <body>
+
+  <!-- Game start score titles -->
+  <div class="row text-center mt-2">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <p class="font-ps2p intro-text score-text">1 UP</p>
+    </div>
+    <div class="col-3">
+      <p class="font-ps2p intro-text score-text">High Score</p>
+    </div>
+    <div class="col-3"></div>
+  </div>
+
+  <!-- Game start scores -->
+  <div class="row text-center">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <p class="font-ps2p intro-text score-text">00</p>
+    </div>
+    <div class="col-3">
+      <p class="font-ps2p intro-text score-text">0000</p>
+    </div>
+    <div class="col-3"></div>
+  </div>
+
+  <!-- Menu area -->
   <div class="menu-area container text-center">
     <div class="menu-content">
-      <div class="row">
-        <div class="col-12">
-          <h1>Hackman</h1>
+
+      <!-- Game title row -->
+      <div class="row text-center">
+        <div class="col-3"></div>
+
+        <!-- Game title -->
+        <div id="game-title" class="col-6 p-4 border rounded">
+          <h1 class="font-ps2p">Hack-Man</h1>
         </div>
+
+        <div class="col-3"></div>
       </div>
-      <div class="row">
+
+      <!-- Game intro details -->
+      <div class="row text-center mt-5 pt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <h2 class="font-ps2p intro-text blue-font">1 Player Only!</h2>
+        </div>
+        <div class="col-3"></div>
+      </div>
+
+      <!-- Game Rules -->
+      <div class="row text-center mt-5 pt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <button type="button" class="btn btn-primary font-ps2p red-font" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Rules
+          </button>
+        </div>
+        <div class="col-3"></div>
+      </div>
+
+      <!-- Start game -->
+      <div class="row text-center mt-5 pt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <a href="game.html">
+            <button type="button" class="btn btn-primary font-ps2p intro-text green-font">
+              Start Game
+            </button>
+          </a>
+        </div>
+        <div class="col-3"></div>
+      </div>
+
+      <!--<div class="row">
         <div class="col">
           <a href="game.html">
             <button type="button" class="btn btn-primary">
@@ -32,10 +99,12 @@
             </button>
           </a>
         </div>
+
         <div class="col">
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Rules
-          </button>
+          </button>-->
+
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
