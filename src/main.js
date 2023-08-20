@@ -288,7 +288,7 @@ const livesText = add([
 // Add Player object to game
 const player = add([
     sprite("player"),
-    pos(100, 100),
+    pos(295, 185),
     area(),
     body(),
     {
