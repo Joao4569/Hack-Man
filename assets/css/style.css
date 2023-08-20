@@ -1,10 +1,70 @@
+/* Press Start 2p font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body{
     background-color: black;
 }
 
+/* index.html */
+
+/* logo */
+.font-ps2p {
+    font-family: 'Press Start 2P', cursive;
+}
+
+#game-title {
+    background-color: #ff5f1f;
+    border-style: ridge !important;
+    border-width: 20px !important;
+    border-color: #bc13fe !important;
+}
+
 h1 {
+    color: #ffff00;
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+/* Itroduction text */
+
+.intro-text {
     color: white;
 }
+
+.score-text {
+    font-size: 1.4rem;
+}
+
+button, h2 {
+    font-size: 2rem !important;
+    border: none !important;
+}
+
+button {
+    background-color: black !important;
+}
+
+.blue-font {
+    color: #04d9ff;
+}
+
+.red-font {
+    color: #ff3131
+}
+
+.red-font:hover {
+    color: #bc13fe;
+}
+
+.green-font {
+    color: #39ff14;
+}
+
+.green-font:hover {
+    color: #1f51ff;
+}
+
+/* Modal */
 
 .modal-title {
     color: black;
@@ -13,15 +73,10 @@ h1 {
 .btn {
     background-color:rgb(197,79,214);
     border-color: rgb(197,79,214);
-  }
+}
 
 .menu-area {
-    background-color: black;
-    border-color: white;
-    border-radius: 10px;
-    border-style: solid;
     margin-top: 100px;
-    height: 400px;
     width: auto;
 }
 
