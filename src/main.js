@@ -475,3 +475,17 @@ allEnemies.forEach((enemy) => {
 //     return direction
 // }
 // --- COMMENT BACK IN UP UNTIL HERE FOR CHANGE DIRECTION CODE ---
+
+
+////////////////////// Music ///////////////////////////////////////////////
+// play a looping soundtrack
+loadSound("cruising", "assets/music/cruising.mp3")
+
+const music = play("cruising", {
+    volume: 0.8,
+    loop: true
+})
+
+
+
+
