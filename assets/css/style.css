@@ -35,7 +35,7 @@ h1 {
     font-size: 1.4rem;
 }
 
-button, h2 {
+.button-menu, h2 {
     font-size: 2rem !important;
     border: none !important;
 }

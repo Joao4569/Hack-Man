@@ -19,7 +19,7 @@
 <body>
 
   <!-- Game start score titles -->
-  <div class="row text-center mt-2">
+  <div class="row container-fluid text-center mt-2">
     <div class="col-3"></div>
     <div class="col-3">
       <p class="font-ps2p intro-text score-text">1 UP</p>
@@ -31,7 +31,7 @@
   </div>
 
   <!-- Game start scores -->
-  <div class="row text-center">
+  <div class="row container-fluid text-center">
     <div class="col-3"></div>
     <div class="col-3">
       <p class="font-ps2p intro-text score-text">00</p>
@@ -43,7 +43,7 @@
   </div>
 
   <!-- Menu area -->
-  <div class="menu-area container text-center">
+  <div class="menu-area container-fluid text-center">
     <div class="menu-content">
 
       <!-- Game title row -->
@@ -71,7 +71,7 @@
       <div class="row text-center mt-5 pt-5">
         <div class="col-3"></div>
         <div class="col-6">
-          <button type="button" class="btn btn-primary font-ps2p red-font" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-primary font-ps2p red-font button-menu" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Rules
           </button>
         </div>
@@ -83,7 +83,7 @@
         <div class="col-3"></div>
         <div class="col-6">
           <a href="game.html">
-            <button type="button" class="btn btn-primary font-ps2p intro-text green-font">
+            <button type="button" class="btn btn-primary font-ps2p intro-text green-font button-menu">
               Start Game
             </button>
           </a>
@@ -91,27 +91,13 @@
         <div class="col-3"></div>
       </div>
 
-      <!--<div class="row">
-        <div class="col">
-          <a href="game.html">
-            <button type="button" class="btn btn-primary">
-              Play now
-            </button>
-          </a>
-        </div>
-
-        <div class="col">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Rules
-          </button>-->
-
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">How to Play</h1>
+                  <h1 class="modal-title fs-5 font-ps2p" id="exampleModalLabel">How to Play</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
