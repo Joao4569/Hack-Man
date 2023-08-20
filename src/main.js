@@ -365,24 +365,99 @@ player.onCollide("enemy", (enemy)=>{
 })
 
 
-//////////////////////////////// Ghost/Enemy /////////////////////////////////////////////////
+//////////////////////////////// Enemy class definition /////////////////////////////////////////////////
 
 
-// Create an empty array to store all enemy objects
-const allEnemies = []
+// Construct a new enemy
+// To have it move, call the setMovementPattern() method right after the object instance is created
+class Enemy {
+	constructor() {
+		this.enemy = add([
+			sprite("enemy"),
+			pos(290, 180),
+			area(),
+			body(),
+			anchor("center"),
+			state("up", ["up", "right", "down", "left"]),
+			"enemy",
+		])
+	}
 
-// Add 3 ghosts to game
-for (let i = 0; i < 3; i++) {
-    let enemy = add([
-        sprite("enemy"),
-        pos(200, 100), // position on screen
-        area(), // necessary to allow collisions
-        body(), // necessary so it doesn't pass through other objects
-        "enemy"
-    ])
-    
-    allEnemies.push(enemy) // add new enemy object to allEnemies
+    // Code to make enemy turn on collision with walls. Default movement is up.
+	setMovementPattern() {
+		let enemySpeed = 30
+
+		// Set default direction
+		let enemyDir = UP
+
+		// Tells object to move every frame - toward enemyDir at enemySpeed
+		onUpdate(() => {
+			this.enemy.move(enemyDir.scale(enemySpeed))
+		})
+
+		this.enemy.onStateEnter("up", () => {
+			enemyDir = UP
+		})
+
+		this.enemy.onStateEnter("right", () => {
+			enemyDir = RIGHT
+		})
+
+		this.enemy.onStateEnter("down", () => {
+			enemyDir = DOWN
+		})
+
+		this.enemy.onStateEnter("left", () => {
+			enemyDir = LEFT
+		})
+
+		// On collision with a wall, enemy will bounce away by 1 pixel (to avoid wall clipping),
+		// then randomly turn left or right and continue moving
+		this.enemy.onCollide("wall", () => {
+			let randDir = Math.floor(Math.random() * 2) // generate 0 or 1
+
+			// Based on current movement state, bounce away in the correct direction,
+			// then pick left or right based on random binary generated above
+			if (this.enemy.state === "up") {
+				this.enemy.pos.y += 1
+				if (randDir === 0) {
+					this.enemy.enterState("left")
+				} else if (randDir === 1) {
+					this.enemy.enterState("right")
+				}
+			} else if (this.enemy.state === "down") {
+				this.enemy.pos.y -= 1
+				if (randDir === 0) {
+					this.enemy.enterState("left")
+				} else if (randDir === 1) {
+					this.enemy.enterState("right")
+				}
+			} else if (this.enemy.state === "right") {
+				this.enemy.pos.x -= 1
+				if (randDir === 0) {
+					this.enemy.enterState("up")
+				} else if (randDir === 1) {
+					this.enemy.enterState("down")
+				}
+			} else if (this.enemy.state === "left") {
+				this.enemy.pos.x += 1
+				if (randDir === 0) {
+					this.enemy.enterState("up")
+				} else if (randDir === 1) {
+					this.enemy.enterState("down")
+				}
+			}
+		})
+	}
 }
+
+
+//////////////////////////////// Create enemies /////////////////////////////////////////////////
+
+
+// This is an example, can be renamed or deleted
+const newEnemy1 = new Enemy()
+newEnemy1.setMovementPattern()
 
 
 //////////////////////////////////// Enemy1 /////////////////////////////////////////////////
@@ -407,83 +482,6 @@ for (let i = 0; i < 3; i++) {
 
 // Enemy1 follows player
 // const ENEMY_SPEED = 120
-
-
-///////////////////////////// Ghost/Enemy Action - Programmed Behaviour /////////////////////////////////////////////////
-
-
-/**
-* Generate a random direction (left, right, up or down)
-* @returns a random direction
-*/
-
-function randomDirection() {
-    let enemySpeed = 100;
-    let directionsList = [
-        [enemySpeed, 0],
-        [-enemySpeed, 0],
-        [0, enemySpeed],
-        [0, -enemySpeed]
-    ]
-    let randomIndex = Math.floor(Math.random() * 4);
-    let direction = directionsList[randomIndex];
-    
-    return direction;
-}
-
-// On each frame, enemy moves in the x and y directions stored in newDir
-// When enemy hits a wall, direction changes, causing it to turn left or right
-allEnemies.forEach((enemy) => {
-    let newDir = randomDirection()
-    onUpdate(() => {
-        enemy.move(newDir[0], newDir[1])
-    })
-    // --- COMMENT BACK IN FROM HERE FOR CHANGE DIRECTION CODE ---
-    // enemy.onCollide("wall", () => {
-    //     debug.log("enemy hit wall") // CAN BE REMOVED - checking when they hit walls
-    //     newDir = changeDirection(newDir)
-    // })
-    // --- COMMENT BACK IN UNTIL HERE FOR CHANGE DIRECTION CODE
-})
-
-/**
-* Based on the current movement of the enemy, returns a new direction that will
-* cause enemy to turn (randomly) right or left when it hits a wall
-* @param {*} currentDirection 
-* @returns direction as an array
-*/
-// --- COMMENT BACK IN FROM HERE FOR CHANGE DIRECTION CODE ---
-// function changeDirection(currentDirection) {
-//     // set speed
-//     let enemySpeed = 100
-
-//     // randomly generate a positive or negative speed
-//     let posOrNeg = Math.floor(Math.random() * 2)
-//     let randSpeed
-//     if (posOrNeg == 0) {
-//         randSpeed = enemySpeed
-//     } else {
-//         randSpeed = -enemySpeed
-//     }
-
-//     // change the direction - set whatever axis was non-zero to zero and set the other
-//     // axis to the random direction from above
-//     let xMov = currentDirection[0]
-//     let yMov = currentDirection[1]
-//     if (xMov != 0) {
-//         xMov = 0
-//         yMov = randSpeed
-//     } else if (yMov != 0) {
-//         xMov = randSpeed
-//         yMov = 0
-//     }
-
-//     // store the new x and y speeds in an array
-//     let direction = [xMov, yMov]
-
-//     return direction
-// }
-// --- COMMENT BACK IN UP UNTIL HERE FOR CHANGE DIRECTION CODE ---
 
 
 //////////////////////////////// Music ///////////////////////////////////////////////
