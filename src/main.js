@@ -232,7 +232,8 @@ loadSpriteAtlas("src/sprites/player-sprite.png", {
 add([
     // text() component is similar to sprite() but renders text
     text("Press arrow keys to move"),
-    pos(1, 1),
+    pos(10, 10),
+    scale(.5),
 ])
 
 
@@ -250,10 +251,12 @@ const score = add([
     color(0, 0, 255),
     
     // Position at center of screen (position relative to the center of the score object)
-    pos(300, 50),
+    pos(gameDisplayWidth - 10, 10),
+
+    scale(.5),
     
     // set anchor
-    anchor("center"),
+    anchor("topright"),
 ])
 
 
