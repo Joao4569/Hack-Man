@@ -399,14 +399,15 @@ const player = add([
     // Construct a new enemy
     // To have it move, call the setMovementPattern() method right after the object instance is created
     class Enemy {
-        constructor() {
+        constructor(position, direction) {
             this.enemy = add([
                 sprite("enemy"),
-                pos(290, 180),
+                pos(position),
                 area(),
                 body(),
                 anchor("center"),
-                state("up", ["up", "right", "down", "left"]),
+                state(direction, ["up", "right", "down", "left"]),
+                { defaultDirection: direction },
                 "enemy",
             ])
         }
@@ -416,7 +417,8 @@ const player = add([
             let enemySpeed = 30
 
             // Set default direction
-            let enemyDir = UP
+            // let enemyDir = this.enemy.defaultDirection
+            let enemyDir
 
             // Tells object to move every frame - toward enemyDir at enemySpeed
             onUpdate(() => {
@@ -483,9 +485,14 @@ const player = add([
     //////////////////////////////// Create enemies /////////////////////////////////////////////////
 
 
-    // This is an example, can be renamed or deleted
-    const newEnemy1 = new Enemy()
+    const newEnemy1 = new Enemy(vec2(172, 105), "up")
+    const newEnemy2 = new Enemy(vec2(415, 105), "right")
+    const newEnemy3 = new Enemy(vec2(415, 265), "down")
+    const newEnemy4 = new Enemy(vec2(172, 265), "left")
     newEnemy1.setMovementPattern()
+    newEnemy2.setMovementPattern()
+    newEnemy3.setMovementPattern()
+    newEnemy4.setMovementPattern()
 
 
     //////////////////////////////////// Enemy1 /////////////////////////////////////////////////
