@@ -84,6 +84,12 @@ button {
     margin-top: 50px;
 }
 
+/* GAME.HTML STYLING */
+
+#game-page-body {
+    background-color: white;
+}
+
 /* centers game on game.html page */
 #game-wrapper{
     display: flex;

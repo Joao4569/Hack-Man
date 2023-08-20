@@ -9,11 +9,11 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 // Note: this code is placed before the initialization of the game
 // because the calculated numbers are used in initialization
 
-// Set the width of the game
-// (This is the approximate width currently,
+// Set the sizes of the game
+// (This is the approximate size currently,
 // but if size needs to be changed just edit these numbers)
-const gameWidth = 620
-const gameHeight = 380
+const gameWidth = 590
+const gameHeight = 370
 const gameAspRatio = gameWidth / gameHeight
 
 // Get the aspect ratio of the current browser window
@@ -21,38 +21,23 @@ let screenWidth = window.innerWidth;
 let screenHeight = window.innerHeight;
 let screenAspRatio = screenWidth / screenHeight
 
-// Get the DOM elements of the canvas
-let gameCanvas = document.getElementById("mycanvas")
-
-// SCREEN AND SCALING CALCULATIONS
-// Determine which screen direction is the limiting factor and 
-// make size and scaling calculations accordingly
-
-// Create variables to store calculated sizes based on limiting screen direction
-let limitingScreenAxis;
+// Create variables to store calculated sizes and scale
 let canvasWidth;
 let canvasHeight;
 let gameScale;
 
-if (screenAspRatio > gameAspRatio) { // screen is wider than game
-    limitingScreenAxis = "height";
+if (screenAspRatio > gameAspRatio) { // limiting screen axis is height (screen is wider than game)
+    canvasHeight = screenHeight * .8
+    canvasWidth = (gameWidth / gameHeight) * canvasHeight
     
-    gameCanvas.style.height = "80vh"; // game height will be 80% of browser window height
-    canvasHeight = gameCanvas.offsetHeight; // store the height of the canvas in pixels
     gameScale = canvasHeight / gameHeight // scale the game by how much bigger the canvas is than the base size
     
-    // calculate the width of the canvas relative to the height determined above
-    gameCanvas.style.width = (gameWidth / gameHeight) * canvasHeight;
-    canvasWidth = (gameWidth / gameHeight) * canvasHeight; // store this value for use here in main.js
-} else if (screenAspRatio <= gameAspRatio) { // screen is taller than game
-    limitingScreenAxis = "width";
-    
-    gameCanvas.style.width = "80vw";
-    canvasWidth = gameCanvas.offsetWidth;
-    gameScale = canvasWidth / gameWidth
-    
-    gameCanvas.style.height = (gameHeight / gameWidth) * canvasWidth
+} else if (screenAspRatio <= gameAspRatio) { // limiting screen axis is width (screen is taller than game)
+    canvasWidth = screenWidth * .8
     canvasHeight = (gameHeight / gameWidth) * canvasWidth
+    
+    gameScale = canvasWidth / gameWidth
+
 }
 
 
