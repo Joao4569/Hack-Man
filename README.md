@@ -80,7 +80,7 @@ We would also like to thank the Code Institute's Hack Team for their valuable su
 
 The music added to the game are free mp3 tracks taken from [wwww.pixabay.com](https://pixabay.com/music/). The tracks are called cruising-down-8-bit-lane, neon-gaming, last-night and stay-retro.
 
-A spritesheet was used to source the images for the maze-wall tiles, dots, fruit and ghosts and was taken from [here](http....).
+A spritesheet was used to source the images for the maze-wall tiles, dots, fruit and ghosts and was taken from [The Spriters Resource](https://www.spriters-resource.com/arcade/pacman/).
 
 The Hack-Man sprite was created by the development using the [Code Institute](https://codeinstitute.net/) logo.
 
