@@ -187,7 +187,12 @@ scene("game", () => {
             height: 15,
         },
     })
+    loadSound("cruising", "assets/music/cruising.mp3")
 
+    const music = play("cruising", {
+        volume: 0.8,
+        loop: true
+    })
     // load  the player sprite sprite 
     loadSpriteAtlas("src/sprites/player-sprite.png", {
         "player": {
@@ -382,6 +387,7 @@ scene("game", () => {
         score.value -= 100
         score.text = "Score: " + score.value
         if (player.lives == 0) {
+            music.paused = true;
             go("over");
         }
         addKaboom(enemy.pos)
@@ -520,14 +526,13 @@ scene("game", () => {
 ////////////  Music has been commented out/disabled for development purposes!!!  ////////////////////
 
     // play a looping soundtrack
-    loadSound("cruising", "assets/music/cruising.mp3")
 
-    const music = play("cruising", {
-        volume: 0.8,
-        loop: true
-    })
+    // loadSound("cruising", "assets/music/cruising.mp3")
 
-})
+    // const music = play("cruising", {
+    //     volume: 0.8,
+    //     loop: true
+    // })
 
 
 ////////////////////////////// CREATE GAME OVER SCENE ///////////////////////////////////////
