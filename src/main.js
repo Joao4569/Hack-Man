@@ -32,13 +32,13 @@ const gameHeight = 650
 // if (screenAspRatio > gameAspRatio) { // limiting screen axis is height (screen is wider than game)
 //     canvasHeight = screenHeight * .8
 //     canvasWidth = (gameWidth / gameHeight) * canvasHeight
-    
+
 //     gameScale = canvasHeight / gameHeight // scale the game by how much bigger the canvas is than the base size
-    
+
 // } else if (screenAspRatio <= gameAspRatio) { // limiting screen axis is width (screen is taller than game)
 //     canvasWidth = screenWidth * .8
 //     canvasHeight = (gameHeight / gameWidth) * canvasWidth
-    
+
 //     gameScale = canvasWidth / gameWidth
 
 // }
@@ -57,18 +57,18 @@ kaboom({
     // and offset the scaling of these numbers that happens by setting scale below
     width: gameWidth,
     height: gameHeight,
-    
+
     font: "sans-serif",
-    
+
     // black background
-    background: [ 0, 0, 0, ],
-    
+    background: [0, 0, 0, ],
+
     // scale the game based on the calculations above
     // scale: gameScale,
-    
+
     // initialize the game in(as?) the canvas in game.html
     canvas: document.querySelector("#mycanvas"),
-    
+
 })
 
 
@@ -109,61 +109,63 @@ scene("game", () => {
         '=*  *       * = !  *       * * =',
         '=************ =  **************=',
         '================================',
-    ],{
+    ], {
         // this will define the size of each tile of the wall
         tileWidth: 25,
         tileHeight: 25,
-        
+
         // this will define each symbol used on the maze map, by a function returning a component list (what will be passed to add())
         tiles: {
-            
+
             // wall
-        "=": () => [ //each symbol represents an object
-            sprite("maze-wall"),
-            area(), //for collision detection
-            pos(),
-            scale(2.5),
-            body({ isStatic: true }),
-            "wall", // tag for collision detection
-        ],
-        // dots
-        "*": () => [
-            sprite("pointDot"),
-            pos(),
-            scale(2),
-            area(),       
-            "pointDot",  // add tag so behavior can be assigned (on collision)},
-        ],
-        //fruits
-        "!": () => [
-            sprite("apple"),
-            pos(),
-            scale(2),
-            area(),       
-            "fruit",  // add tag so behavior can be assigned (on collision)},
-        ],
-        "$": () => [
-            sprite("strawberry"),
-            pos(),
-            scale(2),
-            area(),       
-            "fruit",  // add tag so behavior can be assigned (on collision)},
-        ],
-        "&": () => [
-            sprite("cherry"),
-            pos(),
-            scale(2),
-            area(),       
-            "fruit",  // add tag so behavior can be assigned (on collision)},
-        ],
-        "%": () => [
-            sprite("yellowFruit"),
-            pos(),
-            scale(2),
-            area(),       
-            "fruit",  // add tag so behavior can be assigned (on collision)},
-        ]
-    }
+            "=": () => [ //each symbol represents an object
+                sprite("maze-wall"),
+                area(), //for collision detection
+                pos(),
+                scale(2.5),
+                body({
+                    isStatic: true
+                }),
+                "wall", // tag for collision detection
+            ],
+            // dots
+            "*": () => [
+                sprite("pointDot"),
+                pos(),
+                scale(2),
+                area(),
+                "pointDot", // add tag so behavior can be assigned (on collision)},
+            ],
+            //fruits
+            "!": () => [
+                sprite("apple"),
+                pos(),
+                scale(2),
+                area(),
+                "fruit", // add tag so behavior can be assigned (on collision)},
+            ],
+            "$": () => [
+                sprite("strawberry"),
+                pos(),
+                scale(2),
+                area(),
+                "fruit", // add tag so behavior can be assigned (on collision)},
+            ],
+            "&": () => [
+                sprite("cherry"),
+                pos(),
+                scale(2),
+                area(),
+                "fruit", // add tag so behavior can be assigned (on collision)},
+            ],
+            "%": () => [
+                sprite("yellowFruit"),
+                pos(),
+                scale(2),
+                area(),
+                "fruit", // add tag so behavior can be assigned (on collision)},
+            ]
+        }
     })
 
 
@@ -208,28 +210,38 @@ scene("game", () => {
             y: 490,
             width: 15,
             height: 15,
-        },    
+        },
         "yellowFruit": {
             x: 436,
             y: 676,
             width: 15,
             height: 15,
-        },    
+        },
     })
 
     // load  the player sprite sprite 
     loadSpriteAtlas("src/sprites/player-sprite.png", {
         "player": {
-            x: 0,//horizontal sprite position on the spritesheet 
-            y: 0,//vertical position on spritesheet
-            width: 702,//width of the spritesheet all 3 images in the animation
-            height: 234,//height of the spritesheet
-            sliceX : 3,//how many sprites are on the sprite sheet for this invidual animation
+            x: 0, //horizontal sprite position on the spritesheet 
+            y: 0, //vertical position on spritesheet
+            width: 702, //width of the spritesheet all 3 images in the animation
+            height: 234, //height of the spritesheet
+            sliceX: 3, //how many sprites are on the sprite sheet for this invidual animation
             anims: {
-                idle: { from: 1, to: 2,loop: true, speed:3},
-                run: { from: 2, to: 0 , loop: true, speed:4},//run animation
+                idle: {
+                    from: 1,
+                    to: 2,
+                    loop: true,
+                    speed: 3
+                },
+                run: {
+                    from: 2,
+                    to: 0,
+                    loop: true,
+                    speed: 4
+                }, //run animation
             },
-            
+
         }
     })
 
@@ -249,52 +261,60 @@ scene("game", () => {
 
     // Add Score object to the game
     const score = add([
-        
+
         // initialise the score
         text("Score: 0"),
-        { value: 0 },
-        
+        {
+            value: 0
+        },
+
         // scoreboard color
         color(0, 0, 255),
-        
+
         // Position at center of screen (position relative to the center of the score object)
         pos(gameWidth - 10, 10),
-        
+
         // set anchor
         anchor("topright"),
     ])
 
 
-//////////////////////// Lives ////////////////////////////////////////
-add([
-    text("LIVES:", { size: 20}),
-    pos(gameWidth - 300, 10),
-  ]);
+    //////////////////////// Lives ////////////////////////////////////////
+    add([
+        text("LIVES:", {
+            size: 20
+        }),
+        pos(gameWidth - 300, 10),
+    ]);
 
-const livesText = add([
-    text("1", { size: 20}),
-    pos(gameWidth - 230, 10),
-  ]);
+    const livesText = add([
+        text("1", {
+            size: 20
+        }),
+        pos(gameWidth - 230, 10),
+    ]);
 
-  function updateLives(life) {
-    player.lives += life;
-    livesText.text = player.lives.toString();
-  }
-////////////////////////////// Player ///////////////////////////////////////////////////
+    function updateLives(life) {
+        player.lives += life;
+        livesText.text = player.lives.toString();
+    }
+    ////////////////////////////// Player ///////////////////////////////////////////////////
 
 
-// Add Player object to game
-const player = add([
-    sprite("player"),
-    pos(295, 185),
-    area(),
-    body(),
-    { lives: 1 },
-    scale(.18),
-    rotate(0), // rotate() component gives it rotation
-    anchor("center"),
-    "player",
-])
+    // Add Player object to game
+    const player = add([
+        sprite("player"),
+        pos(295, 185),
+        area(),
+        body(),
+        {
+            lives: 1
+        },
+        scale(.18),
+        rotate(0), // rotate() component gives it rotation
+        anchor("center"),
+        "player",
+    ])
 
     //////////////////////// Player Movement - User input /////////////////////////////////////////////////
 
@@ -315,7 +335,7 @@ const player = add([
     // right
     onKeyDown("right", () => {
         player.move(SPEED, 0)
-        player.angle = 0//changes the rotation of the object rotate(0) and anchor("center") have to be attached to object 
+        player.angle = 0 //changes the rotation of the object rotate(0) and anchor("center") have to be attached to object 
     })
 
 
@@ -340,7 +360,7 @@ const player = add([
             let yCoord = player.pos.y
             player.moveTo(gameWidth - 10, yCoord)
         }
-            
+
         if (player.pos.x > gameWidth) {
             let yCoord = player.pos.y
             player.moveTo(10, yCoord)
@@ -354,7 +374,7 @@ const player = add([
     // When player collides with a point dot, it disappears and 10 points are added to the score
     player.onCollide("pointDot", (pointDot) => {
         destroy(pointDot)
-        
+
         // Increase score and update display
         score.value += 10
         score.text = "Score: " + score.value
@@ -366,7 +386,7 @@ const player = add([
     // When player collides with a fruit, it disappears and 100 points are added to the score
     player.onCollide("fruit", (fruit) => {
         destroy(fruit)
-        
+
         // Increase score and update display
         score.value += 100
         score.text = "Score: " + score.value
@@ -378,13 +398,13 @@ const player = add([
 
     //when player collides with enemy the enemy disappears and 10 points are added to the score and
     //the kaboom explosion animation plays in the enemy position
-    player.onCollide("enemy", (enemy)=>{
+    player.onCollide("enemy", (enemy) => {
         destroy(enemy)
         updateLives(-1);
         score.text = "Score: " + score.value
         if (player.lives == 0) {
             go("over");
-          }
+        }
         addKaboom(enemy.pos)
     })
 
@@ -404,7 +424,9 @@ const player = add([
                 body(),
                 anchor("center"),
                 state(direction, ["up", "right", "down", "left"]),
-                { defaultDirection: direction },
+                {
+                    defaultDirection: direction
+                },
                 "enemy",
             ])
         }
