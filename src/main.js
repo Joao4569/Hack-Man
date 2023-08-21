@@ -221,6 +221,9 @@ scene("game", () => {
 
     loadSprite("game-over", "src/sprites/game-over.png")
 
+    // Load win page sprite
+    loadSprite("win", "src/sprites/win.png")
+
     //////////////////////////// User Instructions ///////////////////////////////
 
 
@@ -362,9 +365,10 @@ scene("game", () => {
         score.value += 10
         score.text = "Score: " + score.value
         if (score.value >= 3010) { 
-            go("over"); 
+            go("win"); 
         }
     })
+
 
     //////////////////////// Player Action - Eat fruits /////////////////////////////////////////////////
 
@@ -377,7 +381,7 @@ scene("game", () => {
         score.value += 100
         score.text = "Score: " + score.value
         if (score.value >= 3010) { 
-            go("over"); 
+            go("win"); 
         }
     })
 
@@ -537,6 +541,32 @@ scene("over", () => {
         sprite("game-over"),
         scale(2.5),
         pos(30, 0)
+    ])
+    add([
+        text("High Score: " + scoreText),
+        pos(gameWidth / 2, gameHeight / 2 + 90),
+        anchor("center"),
+    ])
+
+    add([
+        text("Click To Play Again"),
+        pos(gameWidth / 2, gameHeight / 2 + 170),
+        anchor("center"),
+    ])
+    onClick(() => go("game"))
+
+})
+
+
+////////////////////////////// CREATE WIN SCENE ///////////////////////////////////////
+
+
+scene("win", () => {
+    add([
+        sprite("win"),
+        scale(.6),
+        pos(gameWidth / 2, 80),
+        anchor("top"),
     ])
     add([
         text("High Score: " + scoreText),
