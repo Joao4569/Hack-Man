@@ -5,12 +5,12 @@
 </h1>
 
 
-![Hack-Man Landing Page](assets\images\hackman-landing-page.png)
+ ![Hack-Man Landing Page](assets\images\hackman-landing-page.png)
 
 # SUBMISSION
 ## Deployment
 #### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-This project is deployed and can be accessed at [Name of link](https://joao4569.github.io/Hack-Man/).
+This project is deployed and can be accessed at [https://joao4569.github.io/Hack-Man/](https://joao4569.github.io/Hack-Man/).
 
 ## Criteria
 
@@ -53,6 +53,9 @@ The game is completed by eating all the dots in the maze.
 * The benefits of the game are relaxation/recreation and entertainment.
 
 ## Controls / Game Play
+ 
+ ![Hack-Man Maze](assets\images\hackman-maze.png)
+
 * The arrow keys (up, down, left and right) are used to navigate Hack-Man through the maze. 
 * When Hack-Man collides with a point dot, it disappears and 10 points are added to the score. 
 * When Hack-Man collides with a fruit, it disappears and 100 points are added to the score. 
