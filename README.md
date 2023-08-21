@@ -1,6 +1,6 @@
 # Hack-Man
 
-![Hack-man landing page](assets/images/hackman-landing-page.png)
+![Hack-man landing page](assets/images/readme-landing-page.png)
 
 
 ## Deployment
@@ -54,8 +54,14 @@ The game is completed by eating all the dots in the maze.
 
 * The arrow keys (up, down, left and right) are used to navigate Hack-Man through the maze. 
 * When Hack-Man collides with a point dot, it disappears and 10 points are added to the score. 
-* When Hack-Man collides with a fruit, it disappears and 100 points are added to the score. 
+* When Hack-Man collides with a fruit, it disappears and 100 points are added to the score.
+
+![Hack-Man-Maze](assets/images/readme-enemy.png)
+
 * When Hack-Man collides with an enemy (ghost), one of three lives are lost and a Kaboom explosion animation appears in the  enemy position.
+
+![Hack-Man-Maze](assets/images/readme-tunnel.png)
+
 * Hack-Man can tunnel from one side of the maze to the other.
 * On collision with a wall, the enemy will bounce away from the wall, turn randomly and continue moving.
 
