@@ -322,32 +322,37 @@ scene("game", () => {
     player.play("run")
 
     // Define player movement speed in pixels per second
-    const SPEED = 70
+    let speedX = 0
+    let speedY = 0
 
     // Define player movement with inputs from user
     // left
     onKeyDown("left", () => {
         // .move() is provided by pos() component, move by pixels per second
-        player.move(-SPEED, 0)
+        speedX = -100
+        speedY = 0
         player.angle = 180
     })
 
     // right
     onKeyDown("right", () => {
-        player.move(SPEED, 0)
-        player.angle = 0 //changes the rotation of the object rotate(0) and anchor("center") have to be attached to object 
+        speedX = 100
+        speedY = 0
+        player.angle = 0//changes the rotation of the object rotate(0) and anchor("center") have to be attached to object 
     })
 
 
     // up
     onKeyDown("up", () => {
-        player.move(0, -SPEED)
+        speedX = 0
+        speedY = -100
         player.angle = -90
     })
 
     // down
     onKeyDown("down", () => {
-        player.move(0, SPEED)
+        speedX = 0
+        speedY = 100
         player.angle = 90
     })
 
@@ -365,6 +370,8 @@ scene("game", () => {
             let yCoord = player.pos.y
             player.moveTo(10, yCoord)
         }
+        player.move(speedX, speedY)
+
     })
 
 
