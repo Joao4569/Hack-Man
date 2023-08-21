@@ -289,7 +289,7 @@ scene("game", () => {
     ]);
 
     const livesText = add([
-        text("1", {
+        text("3", {
             size: 20
         }),
         pos(100, 20),
@@ -309,7 +309,7 @@ scene("game", () => {
         area(),
         body(),
         {
-            lives: 1
+            lives: 3
         },
         scale(.18),
         rotate(0), // rotate() component gives it rotation
@@ -409,6 +409,7 @@ scene("game", () => {
     player.onCollide("enemy", (enemy) => {
         destroy(enemy)
         updateLives(-1);
+        score.value -= 200
         score.text = "Score: " + score.value
         if (player.lives == 0) {
             go("over");
@@ -441,7 +442,7 @@ scene("game", () => {
 
         // Code to make enemy turn on collision with walls. Default movement is up.
         setMovementPattern() {
-            let enemySpeed = 50
+            let enemySpeed = 100
 
             // Set default direction
             // let enemyDir = this.enemy.defaultDirection
