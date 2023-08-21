@@ -532,7 +532,7 @@ scene("game", () => {
     // const music = play("cruising", {
     //     volume: 0.8,
     //     loop: true
-    // })
+})
 
 
 ////////////////////////////// CREATE GAME OVER SCENE ///////////////////////////////////////
