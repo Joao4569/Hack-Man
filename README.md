@@ -1,11 +1,9 @@
 
 
-<h1 align="center"><strong>👨‍🔧👨🏻‍🔧👸🏼🍄🐲 Hack-Man 🐲🍄👸🏼👨🏻‍🔧👨‍🔧</strong>
-
-</h1>
+# 👨‍🔧👨🏻‍🔧👸🏼🍄🐲 Hack-Man 🐲🍄👸🏼👨🏻‍🔧👨‍🔧
 
 
-![Hack-Man Landing Page](assets\images\hackman-landing-page.png)
+ ![Hack-Man Landing Page](assets/images/hackman-landing-page.png)
 
 # SUBMISSION
 ## Deployment
