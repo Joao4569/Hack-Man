@@ -304,7 +304,7 @@ scene("game", () => {
     // Add Player object to game
     const player = add([
         sprite("player"),
-        pos(295, 185),
+        pos(400, 350),
         area(),
         body(),
         {
@@ -504,10 +504,10 @@ scene("game", () => {
     //////////////////////////////// Create enemies /////////////////////////////////////////////////
 
 
-    const newEnemy1 = new Enemy(vec2(172, 105), "up")
-    const newEnemy2 = new Enemy(vec2(415, 105), "right")
-    const newEnemy3 = new Enemy(vec2(415, 265), "down")
-    const newEnemy4 = new Enemy(vec2(172, 265), "left")
+    const newEnemy1 = new Enemy(vec2(120, 197), "up")
+    const newEnemy2 = new Enemy(vec2(675, 197), "right")
+    const newEnemy3 = new Enemy(vec2(675, 502), "down")
+    const newEnemy4 = new Enemy(vec2(120, 502), "left")
     newEnemy1.setMovementPattern()
     newEnemy2.setMovementPattern()
     newEnemy3.setMovementPattern()
