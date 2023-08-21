@@ -364,7 +364,8 @@ scene("game", () => {
         // Increase score and update display
         score.value += 10
         score.text = "Score: " + score.value
-        if (score.value >= 3010) { 
+        if (score.value >= 3010) {
+            music.paused = true;
             go("win"); 
         }
     })
@@ -380,7 +381,8 @@ scene("game", () => {
         // Increase score and update display
         score.value += 100
         score.text = "Score: " + score.value
-        if (score.value >= 3010) { 
+        if (score.value >= 3010) {
+            music.paused = true;
             go("win"); 
         }
     })
