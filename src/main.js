@@ -17,6 +17,7 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 // but if size needs to be changed just edit these numbers)
 const gameWidth = 800
 const gameHeight = 650
+let scoreText;
 // const gameAspRatio = gameWidth / gameHeight
 
 // Get the aspect ratio of the current browser window
@@ -243,6 +244,7 @@ scene("game", () => {
         }
     })
 
+    loadSprite("game-over", "src/sprites/game-over.png")
 
     //////////////////////////// User Instructions ///////////////////////////////
 
@@ -370,6 +372,7 @@ scene("game", () => {
             player.moveTo(10, yCoord)
         }
         player.move(speedX, speedY)
+        scoreText = score.value
 
     })
 
@@ -574,9 +577,23 @@ scene("game", () => {
 
 scene("over", () => {
     add([
-        text("Game over"),
-        pos(10, 10),
+        sprite("game-over"),
+        scale(2.5),
+        pos(30, 0)
     ])
+    add([
+        text("High Score: " + scoreText),
+        pos(gameWidth / 2, gameHeight / 2 + 90),
+        anchor("center"),
+    ])
+
+    add([
+        text("Click To Play Again"),
+        pos(gameWidth / 2, gameHeight / 2 + 170),
+        anchor("center"),
+    ])
+    onClick(() => go("game"))
+
 })
 
 
