@@ -520,18 +520,7 @@ scene("game", () => {
         en.setEnemyCollisions()
     }
 
-
-//////////////////////////////// Music ///////////////////////////////////////////////
-
-////////////  Music has been commented out/disabled for development purposes!!!  ////////////////////
-
-    // play a looping soundtrack
-
-    // loadSound("cruising", "assets/music/cruising.mp3")
-
-    // const music = play("cruising", {
-    //     volume: 0.8,
-    //     loop: true
+     loop: true
 })
 
 
