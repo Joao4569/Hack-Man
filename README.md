@@ -1,16 +1,16 @@
 
 
-<h1 align="center"><strong>👨‍🔧👨🏻‍🔧👸🏼🍄🐲 Retro Quest 🐲🍄👸🏼👨🏻‍🔧👨‍🔧</strong>
+<h1 align="center"><strong>👨‍🔧👨🏻‍🔧👸🏼🍄🐲 Hack-Man 🐲🍄👸🏼👨🏻‍🔧👨‍🔧</strong>
 
 </h1>
 
 
-![Summer of Code Banner](assets/images/)
+![Hack-Man Landing Page](assets\images\hackman-landing-page.png)
 
 # SUBMISSION
 ## Deployment
 #### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-This project is deployed and can be accessed at [Name of link](http://your-deployed-link.com).
+This project is deployed and can be accessed at [Name of link](https://joao4569.github.io/Hack-Man/).
 
 ## Criteria
 
