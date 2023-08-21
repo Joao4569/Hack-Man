@@ -583,12 +583,14 @@ scene("over", () => {
     ])
     add([
         text("High Score: " + scoreText),
-        pos(gameWidth/2-130, gameHeight/2+90),
+        pos(gameWidth / 2, gameHeight / 2 + 90),
+        anchor("center"),
     ])
 
     add([
         text("Click To Play Again"),
-        pos(gameWidth/2-160, gameHeight/2+170),
+        pos(gameWidth / 2, gameHeight / 2 + 170),
+        anchor("center"),
     ])
     onClick(() => go("game"))
 
