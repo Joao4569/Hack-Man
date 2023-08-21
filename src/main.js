@@ -423,7 +423,7 @@ scene("game", () => {
 
         // Code to make enemy turn on collision with walls. Default movement is up.
         setMovementPattern() {
-            let enemySpeed = 100
+            let enemySpeed = 130
 
             // Set default direction
             // let enemyDir = this.enemy.defaultDirection
