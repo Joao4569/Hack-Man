@@ -9,40 +9,43 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 // Note: this code is placed before the initialization of the game
 // because the calculated numbers are used in initialization
 
+// Commented out code below - DELETE BEFORE SUBMITTING
+// These are the scaling calculations, left in for now in case we want to reincorporate any parts of them
+
 // Set the sizes of the game
 // (This is the approximate size currently,
 // but if size needs to be changed just edit these numbers)
-const gameWidth = 590
-const gameHeight = 370
-const gameAspRatio = gameWidth / gameHeight
+const gameWidth = 800
+const gameHeight = 650
+// const gameAspRatio = gameWidth / gameHeight
 
 // Get the aspect ratio of the current browser window
-let screenWidth = window.innerWidth;
-let screenHeight = window.innerHeight;
-let screenAspRatio = screenWidth / screenHeight
+// let screenWidth = window.innerWidth;
+// let screenHeight = window.innerHeight;
+// let screenAspRatio = screenWidth / screenHeight
 
 // Create variables to store calculated sizes and scale
-let canvasWidth;
-let canvasHeight;
-let gameScale;
+// let canvasWidth;
+// let canvasHeight;
+// let gameScale;
 
-if (screenAspRatio > gameAspRatio) { // limiting screen axis is height (screen is wider than game)
-    canvasHeight = screenHeight * .8
-    canvasWidth = (gameWidth / gameHeight) * canvasHeight
+// if (screenAspRatio > gameAspRatio) { // limiting screen axis is height (screen is wider than game)
+//     canvasHeight = screenHeight * .8
+//     canvasWidth = (gameWidth / gameHeight) * canvasHeight
     
-    gameScale = canvasHeight / gameHeight // scale the game by how much bigger the canvas is than the base size
+//     gameScale = canvasHeight / gameHeight // scale the game by how much bigger the canvas is than the base size
     
-} else if (screenAspRatio <= gameAspRatio) { // limiting screen axis is width (screen is taller than game)
-    canvasWidth = screenWidth * .8
-    canvasHeight = (gameHeight / gameWidth) * canvasWidth
+// } else if (screenAspRatio <= gameAspRatio) { // limiting screen axis is width (screen is taller than game)
+//     canvasWidth = screenWidth * .8
+//     canvasHeight = (gameHeight / gameWidth) * canvasWidth
     
-    gameScale = canvasWidth / gameWidth
+//     gameScale = canvasWidth / gameWidth
 
-}
+// }
 
 // Game canvas display width and height adjusted for overall game scaling
-let gameDisplayWidth = canvasWidth / gameScale
-let gameDisplayHeight = canvasHeight / gameScale
+// let gameDisplayWidth = canvasWidth / gameScale
+// let gameDisplayHeight = canvasHeight / gameScale
 
 
 ///////////////////////////// Kaboom /////////////////////////////////////
@@ -52,8 +55,8 @@ let gameDisplayHeight = canvasHeight / gameScale
 kaboom({
     // make the width and height of the game the same as the canvas,
     // and offset the scaling of these numbers that happens by setting scale below
-    width: gameDisplayWidth,
-    height: gameDisplayHeight,
+    width: gameWidth,
+    height: gameHeight,
     
     font: "sans-serif",
     
@@ -61,7 +64,7 @@ kaboom({
     background: [ 0, 0, 0, ],
     
     // scale the game based on the calculations above
-    scale: gameScale,
+    // scale: gameScale,
     
     // initialize the game in(as?) the canvas in game.html
     canvas: document.querySelector("#mycanvas"),
@@ -81,43 +84,35 @@ scene("game", () => {
 
     // walls and stationary objects
     addLevel([
-        "                                                           ",
-        '                                                           ',
-        '                                                           ',
-        '                                                           ',
-        '===========================================================',
-        '=          =                   =                          =',
-        '= ***! *** = ***************** = ************************ =',
-        '= *      * = *   *       *   * = *       *              * =',
-        '= * ==== * = * = * ===== * = * = * ===== * ============ * =',
-        '= *      *   *   * =     * = *   *     = *              * =',
-        '= **************** = ***** = ********% = ****$ ********** =',
-        '= *                = *     =           =                * =',
-        '= * ================ * ============= * ================ * =',
-        '= *                  *               *       =          * =',
-        '= ***********% ***************************** = ********** =',
-        '=    *     *   *   *     *   *   *     *   * = *     *    =',
-        '==== * === * = * = * === * = * = * === * = * = * === * ====',
-        '     * = = * = * = * = = * = * = * = = * = * = * = = *     ',
-        '****** = = * = * = * = = * = * = * = = ! = * = * = = ******',
-        '     * = = * = * = * = = * =   = * = =   = * = * = = *     ',
-        '==== * === * = * = * === * ===== * === * = * = * === * ====',
-        '=    *     * = *   *     *       *     *   *   *     *    =',
-        '= ********** = ********& ******************************** =',
-        '= *          =       *               *                  * =',
-        '= * ================ * ============= * ================ * =',
-        '= *                = *         =     * =                * =',
-        '= **************** = ********* = ***** = **************** =',
-        '= *              * =     *   * = *     = *   *   *      * =',
-        '= * ============ * ===== * = * = * ===== * = * = * ==== * =',
-        '= *              *       * = !   *       *   * = *      * =',
-        '= $ ********************** =   *************** = & ****** =',
-        '=                          =                   =          =',
-        '===========================================================',
+        '                                ',
+        '                                ',
+        '                                ',
+        '================================',
+        '=****************= ************=',
+        '=*  *       *   *= *       * * =',
+        '=* =* ===== * = *= * ===== *=* =',
+        '=*  * =     * = *  *     = * * =',
+        '=**** = ***** = *******% = ****=',
+        '======= * ============ * =======',
+        '= **************************** =',
+        '=     *     *   *  *     *     =',
+        '====  * === * = *= * === *  ====',
+        '******* = = * = *= * = = *******',
+        '      * = = * =  = * = = *      ',
+        '====  * === * ==== * === *  ====',
+        '=     *     *      *     *     =',
+        '= ********& *******************=',
+        '======= * ============ * =======',
+        '=**** = *********= ***** = ****=',
+        '=*  * =     *   *= *     = * * =',
+        '=* =* ===== * = *= * ===== *=* =',
+        '=*  *       * = !  *       * * =',
+        '=************ =  **************=',
+        '================================',
     ],{
         // this will define the size of each tile of the wall
-        tileWidth: 10,
-        tileHeight: 10,
+        tileWidth: 25,
+        tileHeight: 25,
         
         // this will define each symbol used on the maze map, by a function returning a component list (what will be passed to add())
         tiles: {
@@ -127,6 +122,7 @@ scene("game", () => {
             sprite("maze-wall"),
             area(), //for collision detection
             pos(),
+            scale(2.5),
             body({ isStatic: true }),
             "wall", // tag for collision detection
         ],
@@ -134,6 +130,7 @@ scene("game", () => {
         "*": () => [
             sprite("pointDot"),
             pos(),
+            scale(2),
             area(),       
             "pointDot",  // add tag so behavior can be assigned (on collision)},
         ],
@@ -141,24 +138,28 @@ scene("game", () => {
         "!": () => [
             sprite("apple"),
             pos(),
+            scale(2),
             area(),       
             "fruit",  // add tag so behavior can be assigned (on collision)},
         ],
         "$": () => [
             sprite("strawberry"),
             pos(),
+            scale(2),
             area(),       
             "fruit",  // add tag so behavior can be assigned (on collision)},
         ],
         "&": () => [
             sprite("cherry"),
             pos(),
+            scale(2),
             area(),       
             "fruit",  // add tag so behavior can be assigned (on collision)},
         ],
         "%": () => [
             sprite("yellowFruit"),
             pos(),
+            scale(2),
             area(),       
             "fruit",  // add tag so behavior can be assigned (on collision)},
         ]
@@ -240,7 +241,6 @@ scene("game", () => {
         // text() component is similar to sprite() but renders text
         text("Press arrow keys to move"),
         pos(10, 10),
-        scale(.5),
     ])
 
 
@@ -258,9 +258,7 @@ scene("game", () => {
         color(0, 0, 255),
         
         // Position at center of screen (position relative to the center of the score object)
-        pos(gameDisplayWidth - 10, 10),
-
-        scale(.5),
+        pos(gameWidth - 10, 10),
         
         // set anchor
         anchor("topright"),
@@ -270,12 +268,12 @@ scene("game", () => {
 //////////////////////// Lives ////////////////////////////////////////
 add([
     text("LIVES:", { size: 20}),
-    pos(gameDisplayWidth - 300, 10),
+    pos(gameWidth - 300, 10),
   ]);
 
 const livesText = add([
     text("1", { size: 20}),
-    pos(gameDisplayWidth - 230, 10),
+    pos(gameWidth - 230, 10),
   ]);
 
   function updateLives(life) {
@@ -291,10 +289,8 @@ const player = add([
     pos(295, 185),
     area(),
     body(),
-    {
-        lives: 1,
-    },
-    scale(.1),
+    { lives: 1 },
+    scale(.18),
     rotate(0), // rotate() component gives it rotation
     anchor("center"),
     "player",
@@ -342,10 +338,10 @@ const player = add([
     onUpdate("player", (player) => {
         if (player.pos.x < 0) {
             let yCoord = player.pos.y
-            player.moveTo(gameDisplayWidth - 10, yCoord)
+            player.moveTo(gameWidth - 10, yCoord)
         }
             
-        if (player.pos.x > gameDisplayWidth) {
+        if (player.pos.x > gameWidth) {
             let yCoord = player.pos.y
             player.moveTo(10, yCoord)
         }
@@ -403,6 +399,7 @@ const player = add([
             this.enemy = add([
                 sprite("enemy"),
                 pos(position),
+                scale(2.5),
                 area(),
                 body(),
                 anchor("center"),
