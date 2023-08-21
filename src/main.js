@@ -342,7 +342,6 @@ scene("game", () => {
         player.angle = 0//changes the rotation of the object rotate(0) and anchor("center") have to be attached to object 
     })
 
-
     // up
     onKeyDown("up", () => {
         speedX = 0
@@ -442,7 +441,7 @@ scene("game", () => {
 
         // Code to make enemy turn on collision with walls. Default movement is up.
         setMovementPattern() {
-            let enemySpeed = 30
+            let enemySpeed = 50
 
             // Set default direction
             // let enemyDir = this.enemy.defaultDirection
@@ -507,6 +506,21 @@ scene("game", () => {
                 }
             })
         }
+
+        // Switch to opposite direction on collision with another enemy
+        setEnemyCollisions() {
+            this.enemy.onCollide("enemy", () => {
+                if (this.enemy.state === "left") {
+                    this.enemy.enterState("right")
+                } else if (this.enemy.state === "right") {
+                    this.enemy.enterState("left")
+                } else if (this.enemy.state === "up") {
+                    this.enemy.enterState("down")
+                } else if (this.enemy.state === "down") {
+                    this.enemy.enterState("up")
+                }
+            })
+        }
     }
 
 
@@ -517,10 +531,17 @@ scene("game", () => {
     const newEnemy2 = new Enemy(vec2(675, 197), "right")
     const newEnemy3 = new Enemy(vec2(675, 502), "down")
     const newEnemy4 = new Enemy(vec2(120, 502), "left")
-    newEnemy1.setMovementPattern()
-    newEnemy2.setMovementPattern()
-    newEnemy3.setMovementPattern()
-    newEnemy4.setMovementPattern()
+
+    let enemiesList = []
+    enemiesList.push(newEnemy1)
+    enemiesList.push(newEnemy2)
+    enemiesList.push(newEnemy3)
+    enemiesList.push(newEnemy4)
+
+    for (let en of enemiesList) {
+        en.setMovementPattern()
+        en.setEnemyCollisions()
+    }
 
 
     //////////////////////////////////// Enemy1 /////////////////////////////////////////////////
