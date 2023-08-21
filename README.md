@@ -1,8 +1,6 @@
-
-
 # Hack-Man
 
-![Home page wireframe](media/readme-images/home-page.png)
+![Hack-man landing page](assets/images/hackman-landing-page.png)
 
 
 ## Deployment
@@ -52,7 +50,7 @@ The game is completed by eating all the dots in the maze.
 
 ## Controls / Game Play
  
-![Hack-Man Maze](assets\images\hackman-maze.png)
+![Hack-Man-Maze](assets/images/hackman-maze.png)
 
 * The arrow keys (up, down, left and right) are used to navigate Hack-Man through the maze. 
 * When Hack-Man collides with a point dot, it disappears and 10 points are added to the score. 
