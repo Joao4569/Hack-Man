@@ -8,17 +8,18 @@
 # SUBMISSION
 ## Deployment
 #### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-This project is deployed and can be accessed at [Name of link](https://joao4569.github.io/Hack-Man/).
+This project is deployed and can be accessed at [Hack-Man](https://joao4569.github.io/Hack-Man/).
 
 ## Criteria
 
-- ✨ Project is 100% Front End
-- ✨ Project must be retro inspired, inspired by actual retro game
-- ✨ Project has neon and 80s music
-- ✨ Basic Readme.md in place
-- ✨ Use Frameworks such as *Kaboom.js, phaser.js, three.js, babylon.js, pixi.js*
+- ✨ Our project is 100% front end based as requied.
+- ✨ Our game was inspired by the retro Namco classic Pac-Man.
+- ✨ We have incorporated neon colors as well as 80's retro game music into our game as required by the judges.
+- ✨ Our basic Readme.md file is completed as required.
+- ✨ We made use of Kaboom.js as required by the judges.
 
 ## Intro
+
 Hack-Man is a retro game based upon the concept of the 80s arcade video game Pac-Man.
 
 Hack-Man was developed to be similar to the much-loved classic Pac-Man, with three main additions:
@@ -44,7 +45,7 @@ The game is completed by eating all the dots in the maze.
 * We aimed to build a copy of the Pac-Man game with correctly functioning 'Hack-Man', dots and fruit to be eaten, ghosts who kill Hack-Man on collision, scoring system and tunnelling feature, where Hack-Man can leave and re-enter the maze.
 
 - ➡️ Target Audience
-* The game is built for people who enjoy retro gaming.
+* The game is built for people who enjoy retro gaming as well as fans of the original Pac-Man.
 * The game can be enjoyed by anyone.
 
 - ➡️ Benefits
@@ -54,13 +55,14 @@ The game is completed by eating all the dots in the maze.
 * The arrow keys (up, down, left and right) are used to navigate Hack-Man through the maze. 
 * When Hack-Man collides with a point dot, it disappears and 10 points are added to the score. 
 * When Hack-Man collides with a fruit, it disappears and 100 points are added to the score. 
-* When Hack-Man collides with an enemy (ghost), 100 points are deducted from the score and one of three lives are lost. A Kaboom explosion animation appears in the enemy position.
+* When Hack-Man collides with an enemy (ghost), 100 points are deducted from the score and one of three lives are lost. A Kaboom explosion animation appears in the  enemy position.
 * Hack-Man can tunnel from one side of the maze to the other.
 * On collision with a wall, the enemy will bounce away from the wall, turn randomly and continue moving.
 
 ## Technologies Used
 * HTML
 * CSS
+* JavaScript
 * Bootstrap
 * Kaboom JavaScript Framework
 
