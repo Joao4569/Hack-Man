@@ -9,7 +9,6 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 // Note: this code is placed before the initialization of the game
 // because the calculated numbers are used in initialization
 
-// Commented out code below - DELETE BEFORE SUBMITTING
 // These are the scaling calculations, left in for now in case we want to reincorporate any parts of them
 
 // Set the sizes of the game
@@ -18,35 +17,6 @@ import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 const gameWidth = 800
 const gameHeight = 650
 let scoreText;
-// const gameAspRatio = gameWidth / gameHeight
-
-// Get the aspect ratio of the current browser window
-// let screenWidth = window.innerWidth;
-// let screenHeight = window.innerHeight;
-// let screenAspRatio = screenWidth / screenHeight
-
-// Create variables to store calculated sizes and scale
-// let canvasWidth;
-// let canvasHeight;
-// let gameScale;
-
-// if (screenAspRatio > gameAspRatio) { // limiting screen axis is height (screen is wider than game)
-//     canvasHeight = screenHeight * .8
-//     canvasWidth = (gameWidth / gameHeight) * canvasHeight
-
-//     gameScale = canvasHeight / gameHeight // scale the game by how much bigger the canvas is than the base size
-
-// } else if (screenAspRatio <= gameAspRatio) { // limiting screen axis is width (screen is taller than game)
-//     canvasWidth = screenWidth * .8
-//     canvasHeight = (gameHeight / gameWidth) * canvasWidth
-
-//     gameScale = canvasWidth / gameWidth
-
-// }
-
-// Game canvas display width and height adjusted for overall game scaling
-// let gameDisplayWidth = canvasWidth / gameScale
-// let gameDisplayHeight = canvasHeight / gameScale
 
 
 ///////////////////////////// Kaboom /////////////////////////////////////
@@ -545,33 +515,9 @@ scene("game", () => {
     }
 
 
-    //////////////////////////////////// Enemy1 /////////////////////////////////////////////////
+//////////////////////////////// Music ///////////////////////////////////////////////
 
-
-    // ENEMY 1 - What is this???? CI enemy? - Johnny asking, DM me
-    // const enemy1 = add([
-    // 	sprite("enemy"),
-    // 	anchor("center"),
-    // 	area(),
-    // 	body(),
-    //   pos(200, 100), //position on screen
-    // This enemy cycle between 3 states, and start from "idle" state
-    // 	state("move"),
-    // ])
-
-    // enemy1.onStateUpdate("move", () => {
-    // 	if (!player.exists()) return
-    // 	const dir = player.pos.sub(enemy1.pos).unit()
-    // 	enemy1.move(dir.scale(ENEMY_SPEED))
-    // })
-
-    // Enemy1 follows player
-    // const ENEMY_SPEED = 120
-
-
-    //////////////////////////////// Music ///////////////////////////////////////////////
-
-    ////////////  Music has been commented out/disabled for development purposes!!!  ////////////////////
+////////////  Music has been commented out/disabled for development purposes!!!  ////////////////////
 
     // play a looping soundtrack
     loadSound("cruising", "assets/music/cruising.mp3")
