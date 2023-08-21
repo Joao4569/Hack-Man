@@ -5,9 +5,9 @@
 
  ![Hack-Man Landing Page](assets\images\hackman-landing-page.png)
 
-# SUBMISSION
+
 ## Deployment
-#### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
+
 This project is deployed and can be accessed at [Hack-Man](https://joao4569.github.io/Hack-Man/).
 
 ## Criteria
@@ -80,7 +80,7 @@ We would like to give credit to the following individuals for their immense cont
 
 We would also like to thank the Code Institute's Hack Team for their valuable support and encouragement.
 
-The music added to the game are free mp3 tracks taken from [wwww.pixabay.com](https://pixabay.com/music/). The tracks are called cruising-down-8-bit-lane, neon-gaming, last-night and stay-retro.
+The music added to the game are free mp3 tracks taken from [Pixabay](https://pixabay.com/music/). The tracks are called cruising-down-8-bit-lane, neon-gaming, last-night and stay-retro.
 
 A spritesheet was used to source the images for the maze-wall tiles, dots, fruit and ghosts and was taken from [The Spriters Resource](https://www.spriters-resource.com/arcade/pacman/).
 
