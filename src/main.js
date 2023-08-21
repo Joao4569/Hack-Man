@@ -58,8 +58,6 @@ kaboom({
     width: gameWidth,
     height: gameHeight,
 
-    font: "sans-serif",
-
     // black background
     background: [0, 0, 0, ],
 
@@ -252,14 +250,16 @@ scene("game", () => {
     add([
         // text() component is similar to sprite() but renders text
         text("Press arrow keys to move"),
-        pos(10, 10),
+        pos(gameWidth - 20, 30),
+        anchor("topright"),
+        scale(.4),
     ])
 
 
     //////////////////////// Scoreboard ////////////////////////////////////////
 
 
-    // Add Score object to the game
+    // Add score object to the game
     const score = add([
 
         // initialise the score
@@ -269,13 +269,12 @@ scene("game", () => {
         },
 
         // scoreboard color
-        color(0, 0, 255),
+        color("#04FFF7"),
 
-        // Position at center of screen (position relative to the center of the score object)
-        pos(gameWidth - 10, 10),
-
-        // set anchor
-        anchor("topright"),
+        // position in approx center of screen
+        pos(gameWidth / 2 - 40, 30),
+        anchor("center"),
+        scale(.6),        
     ])
 
 
@@ -284,14 +283,14 @@ scene("game", () => {
         text("LIVES:", {
             size: 20
         }),
-        pos(gameWidth - 300, 10),
+        pos(20, 20),
     ]);
 
     const livesText = add([
         text("1", {
             size: 20
         }),
-        pos(gameWidth - 230, 10),
+        pos(100, 20),
     ]);
 
     function updateLives(life) {
