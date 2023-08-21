@@ -527,16 +527,6 @@ scene("game", () => {
         loop: true
     })
 
-
-    //////////////////////////////// Exit Game Key Press ///////////////////////////////////////////////
-
-
-    // Delete this section!! For testing purposes only
-
-    onKeyPress("q", () => {
-        go("over")
-    })
-
 })
 
 
