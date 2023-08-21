@@ -5,7 +5,7 @@
 </h1>
 
 
-![Summer of Code Banner](assets/images/)
+![Hack-Man Landing Page](assets\images\hackman-landing-page.png)
 
 # SUBMISSION
 ## Deployment
