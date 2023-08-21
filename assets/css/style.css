@@ -121,8 +121,12 @@ button:modal {
 /* GAME.HTML STYLING */
 
 #game-page-body {
-    background-color: white;
-}
+    background:
+          linear-gradient(red, transparent),
+          linear-gradient(to top left, lime, transparent),
+          linear-gradient(to top right, blue, transparent);
+    background-blend-mode: screen;
+  }
 
 h3 {
 	font-size: 1.2rem;

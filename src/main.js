@@ -574,12 +574,12 @@ scene("game", () => {
     ////////////  Music has been commented out/disabled for development purposes!!!  ////////////////////
 
     // play a looping soundtrack
-    // loadSound("cruising", "assets/music/cruising.mp3")
+    loadSound("cruising", "assets/music/cruising.mp3")
 
-    // const music = play("cruising", {
-    //     volume: 0.8,
-    //     loop: true
-    // })
+    const music = play("cruising", {
+        volume: 0.8,
+        loop: true
+    })
 
 
     //////////////////////////////// Exit Game Key Press ///////////////////////////////////////////////
