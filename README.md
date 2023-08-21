@@ -5,12 +5,12 @@
 </h1>
 
 
-![Summer of Code Banner](https://res.cloudinary.com/djdefbnij/image/upload/v1690795830/FB9845D5-2359-4863-B550-E76853BCFEC7-1_cmkyvh.jpg)
+![Summer of Code Banner](assets/images/)
 
 # SUBMISSION
 ## Deployment
 #### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-This project is deployed and can be accessed at [http://your-deployed-link.com](http://your-deployed-link.com).
+This project is deployed and can be accessed at [Name of link](http://your-deployed-link.com).
 
 ## Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
