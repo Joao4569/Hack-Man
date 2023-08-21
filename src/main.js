@@ -361,6 +361,9 @@ scene("game", () => {
         // Increase score and update display
         score.value += 10
         score.text = "Score: " + score.value
+        if (score.value >= 3010) { 
+            go("over"); 
+        }
     })
 
     //////////////////////// Player Action - Eat fruits /////////////////////////////////////////////////
@@ -373,6 +376,9 @@ scene("game", () => {
         // Increase score and update display
         score.value += 100
         score.text = "Score: " + score.value
+        if (score.value >= 3010) { 
+            go("over"); 
+        }
     })
 
 
@@ -384,7 +390,6 @@ scene("game", () => {
     player.onCollide("enemy", (enemy) => {
         destroy(enemy)
         updateLives(-1);
-        score.value -= 100
         score.text = "Score: " + score.value
         if (player.lives == 0) {
             music.paused = true;
